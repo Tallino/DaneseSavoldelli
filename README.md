@@ -1,1 +1,2 @@
-# Danese
+# Giancarlo Danese
+# Davide Savoldelli
