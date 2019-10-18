@@ -33,16 +33,30 @@
 \subsection{Purpose} 
 This documents represents the Requirements Analysis and Specification Document (RASD) for the SafeStreets software project.
 The goal of this project is to deploy a system that allows users to report traffic/street violations to authorities. Users will have the possibility to send pictures of the violation attached with the date/time and position of the vehicle committing the violation. The software focuses particularly on parking violations, including double parking or parking in a disabled-reserved spot.
+\subsubsection{Goals}
+\begin{itemize}
+\item {[G1]}: Allow users to register to the system with their personal data
+\item {[G2]}: Allow users to report traffic and parking violations 
+\item {[G3]}: Allow end users and authorities to access the information stored
+\item {[G4]}: Retrieve the exact position of the place where the violation is being committed
+\end{itemize}
 \subsection{Scope}
-SafeStreets will have an embedded algorithm which will analyze pictures of the vehicle plates sent by the user in order to recognize the vehicle. This information, together with the position of the vehicle and the type of violation that has been committed, will be stored in the software's database. Both end users and mostly authorities will have the chance to mine the information retrieved in the database by highlighting the streets/areas in which most of the violations are committed, the type of vehicles which commit most of the violations and which type of violations occur the most. 
+SafeStreets will have an embedded algorithm which will analyze pictures of the vehicle plates sent by the user in order to recognize the vehicle. This information, together with the position of the vehicle and the type of violation that has been committed, will be stored in the software's database. Both end users and mostly authorities will have the chance to mine the information retrieved in the database by highlighting the streets/areas in which most of the violations are committed, the type of vehicles which commit most of the violations and which type of violations occur the most. 		
 \subsection{Definitions, Acronyms, Abbreviations} 
 \subsection{Revision history} 
 \subsection{Reference Documents} 
 \subsection{Document Structure} 
 \section{OVERALL DESCRIPTION}
-\subsection{Product perspective: here we include  further details on  the  shared phenomena and a 
+\subsection{Product perspective: here we include  further details on the shared phenomena and a 
 domain model (class diagrams and statecharts)} 
-\subsection{Product functions: here we include the most important requirements} 
+\subsection{Product functions} 
+According to the goals defined in the first section, we can list briefly the most important requirements the system needs to work correctly:
+\begin{itemize}
+\item {\texttt{Registration and Login}}: This functionality enables users to register to the system by inserting their personal data, and to login with their chosen username and password. The system must therefore store the data in it's database and retrieve it when queried.  
+\item {\texttt{Violation Reporting}}: The system must provide users with an in-app photo sending functionality where users can send pictures of the vehicles plate, insert the type of violation by input and finally write the name of street where the violation occurred.
+\item {\texttt{Data Access}}: The software must enable end-users and authorities to access the stored data and mine information from it 
+\item {\texttt{}}:
+\end{itemize}
 \subsection{User characteristics: here we include anything that is relevant to clarify their needs} 
 \subsection{Assumptions, dependencies and constraints: here we include domain assumptions } 
 \section{SPECIFIC REQUIREMENTS: Here we include more details on all aspects in Section 2 if they 
