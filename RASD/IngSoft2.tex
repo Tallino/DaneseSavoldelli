@@ -46,19 +46,38 @@ SafeStreets will have an embedded algorithm which will analyze pictures of the v
 \subsection{Revision history} 
 \subsection{Reference Documents} 
 \subsection{Document Structure} 
+	This paper refers to the structure suggested by IEEE for RASD documents, with very slight modifications:
+		\begin{enumerate}
+			\item \texttt{Introduction}: This first section is a general description of the system's scope and goals. It also includes the revision history of the document and its references, definitions, abbreviations and acronyms used along the paper.
+			\item \texttt{Overall Description}: This section includes shared phenomena, requirements and domain assumptions. It also clarifies users' needs.
+			\item \texttt{Specific Requirements}: This section is made up of all the requirements needed for the system, both functional and non functional.
+			\item \texttt{Formal Analysis Using Alloy}: It includes the Alloy model of the described system.
+			\item \texttt{Effort Spent}: In this section you can find information about the hours spent to draft this document.
+			\item \texttt{References}: Here are the references about papers/documents used to support this document.
+		\end{enumerate}
 \section{OVERALL DESCRIPTION}
 \subsection{Product perspective: here we include  further details on the shared phenomena and a 
 domain model (class diagrams and statecharts)} 
 \subsection{Product functions} 
-According to the goals defined in the first section, we can list briefly the most important requirements the system needs to work correctly:
+According to the goals defined in the first section, we can list the most important functions the system needs to work correctly:
 \begin{itemize}
 \item {\texttt{Registration and Login}}: This functionality enables users to register to the system by inserting their personal data, and to login with their chosen username and password. The system must therefore store the data in it's database and retrieve it when queried.  
 \item {\texttt{Violation Reporting}}: The system must provide users with an in-app photo sending functionality where users can send pictures of the vehicles plate, insert the type of violation by input and finally write the name of street where the violation occurred.
 \item {\texttt{Data Access}}: The software must enable end-users and authorities to access the stored data and mine information from it 
-\item {\texttt{}}:
 \end{itemize}
-\subsection{User characteristics: here we include anything that is relevant to clarify their needs} 
-\subsection{Assumptions, dependencies and constraints: here we include domain assumptions } 
+\subsection{User characteristics} 
+\begin{itemize}
+\item {\texttt{Registered User}}: 
+\item {\texttt{SafeStreet Administrator}}: 
+\item {\texttt{Authorities}}: 
+\end{itemize}
+\subsection{Assumptions, dependencies and constraints}
+ \begin{itemize}
+				\item {\textbf[}\textbf{D1}{\textbf]}: The license plate must be clearly visibile in the photo
+				\item {\textbf[}\textbf{D2}{\textbf]}: Users' device must support the GPS technology
+				\item {\textbf[}\textbf{D3}{\textbf]}: Users' device must be connected to the internet
+				\item {\textbf[}\textbf{D4}{\textbf]}: Users' device must have a camera
+			\end{itemize}
 \section{SPECIFIC REQUIREMENTS: Here we include more details on all aspects in Section 2 if they 
 can be useful for the development team}
 \subsection{External Interface Requirements} 
@@ -85,8 +104,30 @@ itself, what can be proved with it, and why what is proved is important given th
 hand. To show  the soundness and correctness of the model,  this section can show some
 worlds obtained by running it, and/or the results of the checks performed on meaningful 
 assertions}
-\section{EFFORT SPENT: In this section you will include information about the number of hours each 
-group member has worked for this document.}
+\section{EFFORT SPENT}
+\begin{itemize}
+		\item Giancarlo Danese
+		\begin{center}
+			\begin{tabular}{| c | c | c |}
+				\hline
+				Day & Subject & Hours \\ \hline
+				18/10/2019 & Purpose, Scope & 2 \\
+				23/10/2019 & Domain Assumptions, User Characteristics & 1.5 \\
+				\hline
+			\end{tabular}
+		\end{center}
+
+		\item Davide Savoldelli
+		\begin{center}
+			\begin{tabular}{| c | c | c |}
+				\hline
+				Day & Subject & Hours \\ \hline
+				18/10/2019 & Goals, Product Functions & 1 \\
+				23/10/2019 & Document Structure & 2 \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{itemize}
 \section{REFERENCES}
 
 

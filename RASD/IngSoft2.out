@@ -9,8 +9,8 @@
 \BOOKMARK [1][-]{section.2}{OVERALL DESCRIPTION}{}% 9
 \BOOKMARK [2][-]{subsection.2.1}{Product perspective: here we include further details on the shared phenomena and a domain model \(class diagrams and statecharts\)}{section.2}% 10
 \BOOKMARK [2][-]{subsection.2.2}{Product functions}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.3}{User characteristics: here we include anything that is relevant to clarify their needs}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.4}{Assumptions, dependencies and constraints: here we include domain assumptions }{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.3}{User characteristics}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.4}{Assumptions, dependencies and constraints}{section.2}% 13
 \BOOKMARK [1][-]{section.3}{SPECIFIC REQUIREMENTS: Here we include more details on all aspects in Section 2 if they can be useful for the development team}{}% 14
 \BOOKMARK [2][-]{subsection.3.1}{External Interface Requirements}{section.3}% 15
 \BOOKMARK [3][-]{subsubsection.3.1.1}{User Interfaces}{subsection.3.1}% 16
@@ -30,5 +30,5 @@
 \BOOKMARK [3][-]{subsubsection.3.5.4}{Maintainability}{subsection.3.5}% 30
 \BOOKMARK [3][-]{subsubsection.3.5.5}{Portability}{subsection.3.5}% 31
 \BOOKMARK [1][-]{section.4}{FORMAL ANALYSIS USING ALLOY: This section should include a brief presentation of the main objectives driving the formal modeling activity, as well as a description of the model itself, what can be proved with it, and why what is proved is important given the problem at hand. To show the soundness and correctness of the model, this section can show some worlds obtained by running it, and/or the results of the checks performed on meaningful assertions}{}% 32
-\BOOKMARK [1][-]{section.5}{EFFORT SPENT: In this section you will include information about the number of hours each group member has worked for this document.}{}% 33
+\BOOKMARK [1][-]{section.5}{EFFORT SPENT}{}% 33
 \BOOKMARK [1][-]{section.6}{REFERENCES}{}% 34
