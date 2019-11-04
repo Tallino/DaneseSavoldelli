@@ -17,7 +17,7 @@ Davide Savoldelli - }
  \large Requirements Analysis and Specification Document
 }
 
-\begin {document}
+\begin{document}
 
  \begin{figure}
   \centering
@@ -32,7 +32,8 @@ Davide Savoldelli - }
 \section{INTRODUCTION}
 \subsection{Purpose} 
 This documents represents the Requirements Analysis and Specification Document (RASD) for the SafeStreets software project.
-The goal of this project is to deploy a system that allows users to report traffic/street violations to authorities. Users will have the possibility to send pictures of the violation, together with the type of violation and position of the vehicle. The software focuses particularly on parking violations, including double parking or parking in a disabled-reserved spot.
+The goal of this project is to deploy a system that allows users to report traffic/street violations to authorities. \newline
+Users will have the possibility to send pictures of the violation, together with the type of violation and position of the vehicle. The software focuses particularly on parking violations, including double parking or parking in a disabled-reserved spot.
 \subsubsection{Goals}
 \begin{itemize}
 \item {\textbf[}\textbf{G1}{\textbf]}: Allow users to register to the system with their personal data
@@ -44,13 +45,16 @@ The goal of this project is to deploy a system that allows users to report traff
 \item {\textbf[}\textbf{G7}{\textbf]}: Retrieve the exact position of the place where the violation is being committed
 \end{itemize}
 \subsection{Scope}
-SafeStreets will have an embedded algorithm which will analyze pictures of the vehicle plates sent by the user in order to recognize the vehicle. This information, together with the position of the vehicle and the type of violation that has been committed, will be stored in the software's database. Authorities will have the chance to mine the information retrieved in the database by highlighting the streets/areas in which most of the violations are committed, the type of vehicles which commit most of the violations and which type of violations occur the most, suggesting possible interventions that could be taken.	
+SafeStreets will have an embedded algorithm which will analyze pictures of the vehicle plates sent by the user in order to recognize the vehicle. This information, together with the position of the vehicle and the type of violation that has been committed, will be stored in the software's database.
+\newline
+Authorities will have the chance to mine the information retrieved in the database by highlighting the streets/areas in which most of the violations are committed, the type of vehicles which commit most of the violations and which type of violations occur the most, suggesting possible interventions that could be taken.	
 \subsection{Definitions, Acronyms, Abbreviations}
 			\begin{itemize}
 				\item \texttt{User Device}: any compatible device with the SafeStreets application, like a smartphone or a computer
 				\item \texttt{Personal Information}: information provided by the user during the registration process. It includes name, surname, birth date, address, e-mail address, mobile number.
 				\item \texttt{Violation Report}: the act in which users can denounce violations on the streets, by providing the system its position, a photo and by selecting a violation from a precompiled menu
 				\item \texttt{Mobile App}: an application that can be run by mobile devices, both smartphones and smartwatches.
+				\item \texttt{Violations Map}: a map, accessible only by authorities, which contains notifications and alerts about all the unsafe areas where several violations are committed
 			\end{itemize}
 		\subsubsection{Acronyms}
 			\begin{itemize}
@@ -67,6 +71,13 @@ SafeStreets will have an embedded algorithm which will analyze pictures of the v
 			\end{itemize}
 \subsection{Revision history} 
 \subsection{Reference Documents} 
+\begin{itemize}
+				\item Specification Document "SafeStreets Mandatory Project Assignment"
+				\item 830-1993 - IEEE Recommended Practice for Software Requirements
+				\item Document "5.b Structure of RASD"
+				\item Alloy Language Reference "http://alloytools.org/download/alloy-language-reference.pdf"
+			\end{itemize}
+\newpage
 \subsection{Document Structure} 
 	This paper refers to the structure suggested by IEEE for RASD documents, with some modifications:
 		\begin{enumerate}
@@ -77,17 +88,44 @@ SafeStreets will have an embedded algorithm which will analyze pictures of the v
 			\item \texttt{Effort Spent}: In this section you can find information about the hours spent to draft this document.
 			\item \texttt{References}: Here are the references about papers/documents used to support this document.
 		\end{enumerate}
+
+\newpage
 \section{OVERALL DESCRIPTION}
-\subsection{Product perspective: here we include further details on the shared phenomena and a 
-domain model (class diagrams and statecharts)} 
+\subsection{Product perspective}
+Here you can see a high level UML Class Diagram. It describes the systems' structure and the relationship between the parts.
+
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=1.0\linewidth]{images/exports/user/UML.png}
+						\caption{UML Class Diagram}
+						\label{}
+					\end{figure}
+Finally, below are two UML Statechart Diagrams, one for the user and the second one for authorities
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=1.0\linewidth]{images/exports/user/StateChartDiagramUser.png}
+						\caption{Users' Statechart Diagram}
+						\label{}
+					\end{figure}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=1.0\linewidth]{images/exports/authority/StateChartDiagramAuthority.png}
+						\caption{UML Class Diagram}
+						\label{}
+					\end{figure}
+
 \subsection{Product functions} 
 According to the goals defined in the first section, we can list the most important functions the system needs to work correctly:
 \begin{itemize}
 \item {\texttt{Registration and Login}}: This functionality enables users to register to the system by inserting their personal data, and to login with their chosen username and password. The system must therefore store the data in it's database and retrieve it when queried.  
 \item {\texttt{Violation Reporting}}: The system must provide users with an in-app photo sending functionality where users can send pictures of the vehicles' plate, select the type of violation from the dropdown menu and let their GPS track down their position.
+\item {\texttt{Reports History}}: The system must allow users to access their reports history, where all those users' previous reports are stored with their data (type, location etc.)
 \item {\texttt{Unsafe Areas Map}}: The software must cross its reports positions with the municipality to identify unsafe areas and highlight them on a map together with their corresponding violations.
 \item {\texttt{Violation Solving}}: The system must enable authorities to access the map of violations and as soon as measures are taken, check them as "solved".
 \end{itemize}
+
+\newpage
+
 \subsection{User characteristics} 
 \begin{itemize}
 \item {\texttt{Registered User}}: A person who registered to SafeStreets, sharing his personal data. He can login to the system by providing credentials and exploit all the services.
@@ -107,25 +145,75 @@ According to the goals defined in the first section, we can list the most import
 				\item {\textbf[}\textbf{D10}{\textbf]}: Authorities must be provided with their authority identification
 				\item {\textbf[}\textbf{D11}{\textbf]}: Authorities must always check the validity of the photos taken
 			\end{itemize}
+
+\newpage
+
 \section{SPECIFIC REQUIREMENTS}
 \subsection{External Interface Requirements} 
 \subsubsection{User Interfaces}
 These mockups represent an idea of how the user's interface will be shown and easily accessed, spanning from the simple registration and login to the violation report function. 
 \\ \\
 You can also notice how SafeStreets provides the authorities' with a Web App which is separated both in functions and in design from the normal mobile app destinated to users.
-					\begin{figure}[h]
+					\begin{figure}[H]
 						\centering
-						\includegraphics[width=0.4\linewidth]{images/exports/user/sign-up.png}
-						\caption{The registration page where you input your credentials}
+						\includegraphics[width=0.4\linewidth]{images/exports/user/home.png}
+						\includegraphics[width=0.4\linewidth]{images/exports/user/home-no-map.png}
+						\caption{The Homepage with its photo button}
 						\label{}
 					\end{figure}
-		
+				\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.3\linewidth]{images/exports/user/sign-up.png}
+						\includegraphics[width=0.3\linewidth]{images/exports/user/sign-in.png}
+						\caption{The registration and login pages where you input your credentials}
+						\label{}
+					\end{figure}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.3\linewidth]{images/exports/user/take-photo.png}
+						\includegraphics[width=0.3\linewidth]{images/exports/user/confirm-photo.png}
+						\caption{Snapshots from the photo-taking screen and the confirmation photo}
+						\label{}
+					\end{figure}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.3\linewidth]{images/exports/user/violation-details.png}
+						\includegraphics[width=0.3\linewidth]{images/exports/user/account-info.png}
+						\caption{The Violation Reporting functionality and the menu}
+						\label{}
+					\end{figure}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=1.0\linewidth]{images/exports/authority/sign-in.png}
+						\caption{The login page for authorities}
+						\label{}
+					\end{figure}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=1.0\linewidth]{images/exports/authority/reports-list.png}
+						\caption{The Violations Map where authorities can post suggestions or look-up license plates}
+						\label{}
+					\end{figure}
+ 					\begin{figure}[H]
+						\centering
+						\includegraphics[width=1.0\linewidth]{images/exports/authority/suggestions-list.png}
+						\caption{The Suggestions Map where authorities can exploit a violations list}
+						\label{}
+					\end{figure}
+		\newpage
 \subsubsection{Hardware Interfaces}
+The application must run over the Internet, therefore all the hardware must connect to the network and there will be an hardware interface for the system, both server and client side.
+		\begin{itemize}
+			\item Server-side: e.g. Modem, WAN - LAN, Ethernet Cross-Cable.
+			\item Client-side: e.g. Wi-Fi 802.11ac+ antenna, 3G/4G antenna.
+		\end{itemize}
 \subsubsection{Software Interfaces}
+SafeStreets will provide an API for the user, together with the already Web Application Interface for authorities.\\
+		More specifically, it will provide an API that allows users to report violations and check their reports history, and an API for authorities which enables them to check the Violations/Suggestions Map and take measures.
 \subsubsection{Communication Interfaces}
-\subsection{Functional  Requirements:  Definition of use case diagrams, use cases and associated 
-sequence/activity diagrams, and mapping on requirements}
-\subsubsection{Scenarios}
+Exploits all the basic network information transporting protocols, such as TCP and UDP, sockets and RMI \\
+	\newpage
+\subsection{Scenarios}
 \subsubsection*{Scenario 1 - User Registration}
 Marco decides to contribute to his cities' street security by registering to SafeStreets. He opens the app, and he inserts his personal data, such as name, surname and e-mail. He then decides a username and a password to access the app. He is now ready to report violations and secure the city.
 \subsubsection*{Scenario 2 - Authority Registration}
@@ -134,7 +222,17 @@ Giovanni is a policeman who wants to register as an authority on the system. He 
 Roberto is a guy who lives in a street constantly full of double-parked cars. Tired of this situation, he decides to report them to the authorities throughout SafeStreets. He takes a picture of the car with the license plate fully visible, he lets the app track down his position and he selects a type of violation from the dropdown menu.
 \subsubsection*{Scenario 4 - Suggestion Report}
 Ciro is in his office watching the Unsafe Areas map of his city. In particular, he notices that there's an area in his city full of reports and violations of cars parking in the bike lane and therefore occupying it. So he decides to use the suggestion report function to hint the municipality in placing a protection barrier parallel to the edge of the bike lane in order to prevent cars from parking on them.
-\subsection{Performance Requirements} 
+\newpage
+\subsection{Functional Requirements}
+\subsubsection*{{[}{G1}{]}: Allow users to register to the system with their personal data}
+\begin{itemize}
+\item {[D1]}: Users' must provide valid credentials when registering to the system
+\item {[D2]}: Users' device must be connected to the internet
+\item {[D3]}: Users' device must support Mobile Applications
+\\\\
+\item {[R1]}:
+\end{itemize}
+\subsection{Performance Requirements}
 \subsection{Design Constraints}
 \subsubsection{Standards compliance}
 \subsubsection{Hardware limitations}
