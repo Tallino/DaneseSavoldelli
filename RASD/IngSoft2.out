@@ -25,13 +25,12 @@
 \BOOKMARK [2][-]{subsection.3.5}{Design Constraints}{section.3}% 25
 \BOOKMARK [3][-]{subsubsection.3.5.1}{Standards compliance}{subsection.3.5}% 26
 \BOOKMARK [3][-]{subsubsection.3.5.2}{Hardware limitations}{subsection.3.5}% 27
-\BOOKMARK [3][-]{subsubsection.3.5.3}{Any other constraint}{subsection.3.5}% 28
-\BOOKMARK [2][-]{subsection.3.6}{Software System Attributes}{section.3}% 29
-\BOOKMARK [3][-]{subsubsection.3.6.1}{Reliability}{subsection.3.6}% 30
-\BOOKMARK [3][-]{subsubsection.3.6.2}{Availability}{subsection.3.6}% 31
-\BOOKMARK [3][-]{subsubsection.3.6.3}{Security}{subsection.3.6}% 32
-\BOOKMARK [3][-]{subsubsection.3.6.4}{Maintainability}{subsection.3.6}% 33
-\BOOKMARK [3][-]{subsubsection.3.6.5}{Portability}{subsection.3.6}% 34
-\BOOKMARK [1][-]{section.4}{FORMAL ANALYSIS USING ALLOY: This section should include a brief presentation of the main objectives driving the formal modeling activity, as well as a description of the model itself, what can be proved with it, and why what is proved is important given the problem at hand. To show the soundness and correctness of the model, this section can show some worlds obtained by running it, and/or the results of the checks performed on meaningful assertions}{}% 35
-\BOOKMARK [1][-]{section.5}{EFFORT SPENT}{}% 36
-\BOOKMARK [1][-]{section.6}{REFERENCES}{}% 37
+\BOOKMARK [2][-]{subsection.3.6}{Software System Attributes}{section.3}% 28
+\BOOKMARK [3][-]{subsubsection.3.6.1}{Reliability}{subsection.3.6}% 29
+\BOOKMARK [3][-]{subsubsection.3.6.2}{Availability}{subsection.3.6}% 30
+\BOOKMARK [3][-]{subsubsection.3.6.3}{Security}{subsection.3.6}% 31
+\BOOKMARK [3][-]{subsubsection.3.6.4}{Maintainability}{subsection.3.6}% 32
+\BOOKMARK [3][-]{subsubsection.3.6.5}{Portability}{subsection.3.6}% 33
+\BOOKMARK [1][-]{section.4}{FORMAL ANALYSIS USING ALLOY: This section should include a brief presentation of the main objectives driving the formal modeling activity, as well as a description of the model itself, what can be proved with it, and why what is proved is important given the problem at hand. To show the soundness and correctness of the model, this section can show some worlds obtained by running it, and/or the results of the checks performed on meaningful assertions}{}% 34
+\BOOKMARK [1][-]{section.5}{EFFORT SPENT}{}% 35
+\BOOKMARK [1][-]{section.6}{REFERENCES}{}% 36
