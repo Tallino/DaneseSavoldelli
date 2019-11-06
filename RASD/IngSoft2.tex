@@ -39,10 +39,11 @@ Users will have the possibility to send pictures of the violation, together with
 \item {\textbf[}\textbf{G1}{\textbf]}: Allow users to register to the system with their personal data
 \item {\textbf[}\textbf{G2}{\textbf]}: Allow users to report traffic/parking violations 
 \item {\textbf[}\textbf{G3}{\textbf]}: Allow users to check their reports history
-\item {\textbf[}\textbf{G4}{\textbf]}: Allow users to check their account info
+\item {\textbf[}\textbf{G4}{\textbf]}: Allow users to check/modify their account info
 \item {\textbf[}\textbf{G5}{\textbf]}: Allow authorities to register to the system with their personal data
 \item {\textbf[}\textbf{G6}{\textbf]}: Allow authorities to access the Violations/Suggestions map
-\item {\textbf[}\textbf{G7}{\textbf]}: Allow authorities to suggest interventions or take measures
+\item {\textbf[}\textbf{G7}{\textbf]}: Allow authorities to suggest interventions/take measures
+\item {\textbf[}\textbf{G8}{\textbf]}: Allow authorities to discard non-valid photos
 \end{itemize}
 \subsection{Scope}
 SafeStreets will have an embedded algorithm which will analyze pictures of the vehicle plates sent by the user in order to recognize the vehicle. This information, together with the position of the vehicle and the type of violation that has been committed, will be stored in the software's database.
@@ -290,6 +291,296 @@ Ciro is in his office watching the Unsafe Areas map of his city. In particular, 
 \item {[R18]}: The system must allow authorities to suggest interventions
 \item {[R19]}: The system must allow authorities to take measures such as issuing fines etc.
 \end{itemize}
+\subsubsection*{{[}{G8}{]}: Allow authorities to discard non-valid photos}
+\begin{itemize}
+\item {[D10]}: Authorities must have access to the internet
+\item {[D12]}: Authorities must always check the validity of the photos taken
+\\\\
+\item {[R20]}: The system must allow authorities to discard pictures which don't represent a vehicle
+\item {[R21]}: The system must allow authorities to discard pictures of vehicles which aren't committing any violation
+\end{itemize}
+\newpage
+\subsection{Use Cases}
+	\subsubsection{Visitor Registration}
+		\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Visitor registers to SafeStreets \\
+				\hline
+				\textbf{ACTOR} & Visitor \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The visitor has installed \\
+				&	the app on his/her mobile device \\ \hline
+				\textbf{EVENTS FLOW}  &
+				1. The visitor fills all the mandatory fields in the\\
+				& Registration Form with his credentials\\
+				&2. The visitor clicks on the "Register" button\\
+				&3. The system checks the datas' validity \\
+				&4. The system sends an SMS/e-mail as confirmation\\
+				&5. The system saves the users' personal data\\
+				\hline
+				\textbf{EXIT CONDITIONS}  & The visitor has successfully registered to SafeStreets\\ \hline
+				\textbf{EXCEPTIONS} &
+				1. The e-mail is already registered\\
+				&2. The mobile number is already registered\\
+				&3. Some mandatory fields are not filled\\
+				\hline
+			\end{tabular}
+		\end{center}
+\subsubsection{User Login}
+	\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & User login to SafeStreets \\
+				\hline
+				\textbf{ACTOR} & User \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The user is registered to the system and \\
+				&	is on the login page\\
+				\hline
+				\textbf{EVENTS FLOW}  &
+				1. The user enters his/her e-mail or telephone number\\
+				&2. The user enters the password\\
+				&3. The users clicks on the "Login" button\\
+				&4. The system checks the credentials validity\\
+				\hline
+				\textbf{EXIT CONDITIONS}  & The visitor has successfully logged in to SafeStreets\\ \hline
+				\textbf{EXCEPTIONS} &
+				1. The User is not registered\\
+				&2. The e-mail is wrong\\
+				&3. The mobile number is wrong\\
+				&4. The password is wrong\\
+				&5. Some mandatory fields are not filled\\
+				\hline
+			\end{tabular}
+		\end{center}
+\newpage
+\subsubsection{Authority Registration}
+\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Authority registers to SafeStreets \\
+				\hline
+				\textbf{ACTOR} & Authority \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The authority has installed \\
+				&	the web app on his/her computer\\
+				\hline
+				\textbf{EVENTS FLOW}  &
+				1. The authority sends his ID document and\\
+				& his authority identification number\\
+				&2. The system checks the datas' validity\\
+				&3. The system sends back to the authority an AUC and DBP\\
+				&4. The system saves the authorities' personal data\\
+				\hline
+				\textbf{EXIT CONDITIONS}  & The authority has successfully registered to SafeStreets \\ 
+				\hline
+				\textbf{EXCEPTIONS} &
+				1. The AUC is already registered\\
+				&2. The DBP is already registered\\
+				&3. Some mandatory fields are not filled\\
+				\hline
+			\end{tabular}
+		\end{center}
+\subsubsection{Authority Login}
+\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Authority login to SafeStreets \\
+				\hline
+				\textbf{ACTOR} & Authority \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The authority is registered to the system and\\
+				&	is on the login page \\
+				\hline
+				\textbf{EVENTS FLOW}  &
+				1. The authority enters his/her AUC\\
+				&2. The authority enters his/her DBP\\
+				&3. The authority clicks on the "Login" button\\
+				&4. The system checks the credentials validity\\
+				\hline
+				\textbf{EXIT CONDITIONS}  & The authority has successfully logged in to SafeStreets \\ 
+				\hline
+				\textbf{EXCEPTIONS} &
+				1. The authority is not registered\\
+				&2. The AUC is wrong\\
+				&3. The DBP is wrong \\
+				&4. Some mandatory fields are not filled\\
+				\hline
+			\end{tabular}
+		\end{center}
+\newpage
+\subsubsection{Account Information}
+\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Account Information \\
+				\hline
+				\textbf{ACTOR} & User \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The user is logged in and is on the menu \\
+				\hline
+				\textbf{EVENTS FLOW}  &
+				1. The user clicks on the "Account Info" button\\
+				&2. The checks his account information\\
+				&3. Optionally, the user can decide to modify\\
+				& one or more credentials\\
+				&4. If the user decided to modify his info,\\
+				& the system checks the new datas' validity\\
+				\hline
+				\textbf{EXIT CONDITIONS}  & The user has successfully checked/modified\\
+				& his account information\\ 
+				\hline
+				\textbf{EXCEPTIONS} &
+				1. The user is not logged in\\
+				&2. The user tries to modify his info with new wrong credentials\\
+				\hline
+			\end{tabular}
+		\end{center}
+\subsubsection{Violation Reporting}
+\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Violation Reporting\\
+				\hline
+				\textbf{ACTOR} & User \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The user is logged in and is on the map page\\
+				\hline
+				\textbf{EVENTS FLOW}  &
+				1. The user clicks on the "Photo" button\\
+				&2. The user takes the picture of the license plate of the car\\
+				& committing the violation\\
+				&3. The user chooses the violation type\\
+				& from the dropdown menu\\
+				&4. The user lets the GPS retrieve his position\\
+				&5. Optionally, he can add a comment\\
+				&6. The user clicks the "Report Violation" button\\
+				\hline
+				\textbf{EXIT CONDITIONS}  & The user has successfully reported a violation \\ 
+				\hline
+				\textbf{EXCEPTIONS} &
+				1. The user is not logged in\\
+				&2. The users' device doesn't have a camera\\
+				&3. The users' camera is not working\\
+				&4. The user doesn't take the picture of a car\\
+				&5. The license plate is not clearly visible \\
+				&6. The users' GPS is not working \\
+				&7. The users' GPS is deactived\\
+				\hline
+			\end{tabular}
+		\end{center}
+\newpage
+\subsubsection{Reports History}
+\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Reports History\\
+				\hline
+				\textbf{ACTOR} & User \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The user is logged in and is on the menu\\
+				\hline
+				\textbf{EVENTS FLOW}  &
+				1. The user clicks on the "Reports History" button\\
+				&2. The user scrolls his/her previous reports\\
+				&3. The user clicks on the chosen reports' details\\
+				\hline
+				\textbf{EXIT CONDITIONS} & The user has successfully seen his old reports' details \\ 
+				\hline
+				\textbf{EXCEPTIONS} &
+				1. The user is not logged in\\
+				&2. The user never reported a violation\\
+				\hline
+			\end{tabular}
+		\end{center}
+\subsubsection{Violation Solving}
+\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Violation Solving\\
+				\hline
+				\textbf{ACTOR} & Authority \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The authority is logged in and is on the violations map\\
+				\hline
+				\textbf{EVENTS FLOW}  &
+				1. The authority clicks on the \\
+				& "Queued Violations" dropdown menu\\
+				&2. The authority scrolls the menu until he\\ 
+				& reaches the interested violation\\
+				&3. The authority checks the violations validity \\
+				&4. The authority looks up the vehicles' owner\\
+				&5. The authority decides to take measures (issuing a fine)\\
+				&6. The authority marks the violation as "solved"\\
+				\hline
+				\textbf{EXIT CONDITIONS} & The authority has successfully marked the violation as solved \\ 
+				\hline
+				\textbf{EXCEPTIONS} &
+				1. The authority is not logged in\\
+				&2. The authority isn't on the violations map\\
+				&3. There aren't any queued violations\\
+				&4. The authority finds an invalid violation\\
+				\hline
+			\end{tabular}
+		\end{center}
+\newpage
+\subsubsection{Suggestion Posting}
+\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Suggestion Posting\\
+				\hline
+				\textbf{ACTOR} & Authority \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The authority is logged in and is on the suggestions map\\
+				\hline
+				\textbf{EVENTS FLOW}  &
+				1. The authority clicks on the show Suggestions button\\
+				&2. The authority clicks on the blue alert of the interested area\\ 
+				&3. The authority writes a suggestion about what could be done \\
+				&5. The authority marks the violation as "solved"\\
+				\hline
+				\textbf{EXIT CONDITIONS} & The authority has successfully posted a suggestion \\ 
+				\hline
+				\textbf{EXCEPTIONS} &
+				1. The authority is not logged in\\
+				&2. The authority isn't on the suggestions map\\
+				&3. The authority doesn't fill in the suggestion text box\\
+				\hline
+			\end{tabular}
+		\end{center}
+\subsection{Sequence Diagrams}
+\subsubsection{User Registration}
+	\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{assets/sequence_diagrams/exports/registration_private_subject.pdf}
+				\label{fig:registration_sequence}
+			\end{figure}
+\subsubsection{User Login}
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{assets/sequence_diagrams/exports/login_private_subject.pdf}
+				\label{fig:registration_sequence}
+			\end{figure}
+\subsubsection{Authority Login}
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{assets/sequence_diagrams/exports/login_public_subject.pdf}
+				\label{fig:registration_sequence}
+			\end{figure}
+\subsubsection{Violation Reporting}
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{assets/sequence_diagrams/exports/workflow_private_subject.pdf}
+				\label{fig:registration_sequence}
+			\end{figure}
+\subsubsection{Violation Solving}
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{assets/sequence_diagrams/exports/workflow_public_subject_1.pdf}
+				\label{fig:registration_sequence}
+			\end{figure}
 \subsection{Performance Requirements}
 	The system must be able to handle a big quantity of reports with several images attached throughout the day. In order to improve the performance of the system, SafeStreets should rely on lightweight TCP connections.\\
 	For what concerns the Violations/Suggestions Map, the map scrolling must be fluid and responsive, the violation alerts clear and the login process for both users and authorities must be fast and reliable

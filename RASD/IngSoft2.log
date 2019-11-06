@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.15)  5 NOV 2019 18:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.15)  6 NOV 2019 18:16
 entering extended mode
 **./IngSoft2.tex
 (IngSoft2.tex
@@ -290,6 +290,18 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `fig:registration_sequence' multiply defined.
+
+
+LaTeX Warning: Label `fig:registration_sequence' multiply defined.
+
+
+LaTeX Warning: Label `fig:registration_sequence' multiply defined.
+
+
+LaTeX Warning: Label `fig:registration_sequence' multiply defined.
+
 )
 \openout1 = `IngSoft2.aux'.
 
@@ -358,7 +370,7 @@ LaTeX Info: Redefining \nameref on input line 20.
 \@outlinefile=\write3
 \openout3 = `IngSoft2.out'.
 
-<assets/images/logo_poli.jpg, id=151, 578.16pt x 569.12625pt>
+<assets/images/logo_poli.jpg, id=211, 578.16pt x 569.12625pt>
 File: assets/images/logo_poli.jpg Graphic file (type jpg)
 <use assets/images/logo_poli.jpg>
 Package pdftex.def Info: assets/images/logo_poli.jpg  used on input line 24.
@@ -392,245 +404,353 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
 
 [4]
-Overfull \hbox (21.30269pt too wide) in paragraph at lines 78--79
+Overfull \hbox (21.30269pt too wide) in paragraph at lines 79--80
 []\OT1/cmr/m/n/12 Alloy Lan-guage Ref-er-ence "http://alloytools.org/download/a
 lloy-language-
  []
 
 [5] [6]
-<assets/images/exports/user/UML.png, id=232, 854.19125pt x 554.07pt>
+<assets/images/exports/user/UML.png, id=307, 854.19125pt x 554.07pt>
 File: assets/images/exports/user/UML.png Graphic file (type png)
 <use assets/images/exports/user/UML.png>
 Package pdftex.def Info: assets/images/exports/user/UML.png  used on input line
- 98.
+ 99.
 (pdftex.def)             Requested size: 390.0pt x 252.97305pt.
-<assets/images/exports/user/StateChartDiagramUser.png, id=234, 1097.09875pt x 3
+<assets/images/exports/user/StateChartDiagramUser.png, id=309, 1097.09875pt x 3
 49.305pt>
 File: assets/images/exports/user/StateChartDiagramUser.png Graphic file (type p
 ng)
 <use assets/images/exports/user/StateChartDiagramUser.png>
 Package pdftex.def Info: assets/images/exports/user/StateChartDiagramUser.png  
-used on input line 105.
+used on input line 106.
 (pdftex.def)             Requested size: 390.0pt x 124.17203pt.
-<assets/images/exports/authority/StateChartDiagramAuthority.png, id=235, 1056.9
+<assets/images/exports/authority/StateChartDiagramAuthority.png, id=310, 1056.9
 4875pt x 237.88875pt>
 File: assets/images/exports/authority/StateChartDiagramAuthority.png Graphic fi
 le (type png)
 <use assets/images/exports/authority/StateChartDiagramAuthority.png>
 Package pdftex.def Info: assets/images/exports/authority/StateChartDiagramAutho
-rity.png  used on input line 111.
+rity.png  used on input line 112.
 (pdftex.def)             Requested size: 390.0pt x 87.77788pt.
  [7 <./assets/images/exports/user/UML.png> <./assets/images/exports/user/StateC
 hartDiagramUser.png>] [8 <./assets/images/exports/authority/StateChartDiagramAu
 thority.png>] [9]
-<assets/images/exports/user/home.png, id=255, 376.40625pt x 815.045pt>
+<assets/images/exports/user/home.png, id=330, 376.40625pt x 815.045pt>
 File: assets/images/exports/user/home.png Graphic file (type png)
 <use assets/images/exports/user/home.png>
 Package pdftex.def Info: assets/images/exports/user/home.png  used on input lin
-e 159.
+e 160.
 (pdftex.def)             Requested size: 155.99762pt x 337.78964pt.
-<assets/images/exports/user/home-no-map.png, id=256, 376.40625pt x 815.045pt>
+<assets/images/exports/user/home-no-map.png, id=331, 376.40625pt x 815.045pt>
 File: assets/images/exports/user/home-no-map.png Graphic file (type png)
 <use assets/images/exports/user/home-no-map.png>
 Package pdftex.def Info: assets/images/exports/user/home-no-map.png  used on in
-put line 160.
+put line 161.
 (pdftex.def)             Requested size: 155.99762pt x 337.78964pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--163
+Underfull \hbox (badness 10000) in paragraph at lines 155--164
 
  []
 
-<assets/images/exports/user/sign-up.png, id=257, 376.40625pt x 815.045pt>
+<assets/images/exports/user/sign-up.png, id=332, 376.40625pt x 815.045pt>
 File: assets/images/exports/user/sign-up.png Graphic file (type png)
 <use assets/images/exports/user/sign-up.png>
 Package pdftex.def Info: assets/images/exports/user/sign-up.png  used on input 
-line 166.
+line 167.
 (pdftex.def)             Requested size: 117.00119pt x 253.34534pt.
-<assets/images/exports/user/sign-in.png, id=258, 376.40625pt x 815.045pt>
+<assets/images/exports/user/sign-in.png, id=333, 376.40625pt x 815.045pt>
 File: assets/images/exports/user/sign-in.png Graphic file (type png)
 <use assets/images/exports/user/sign-in.png>
 Package pdftex.def Info: assets/images/exports/user/sign-in.png  used on input 
-line 167.
+line 168.
 (pdftex.def)             Requested size: 117.00119pt x 253.34534pt.
-<assets/images/exports/user/take-photo.png, id=259, 376.40625pt x 815.045pt>
+<assets/images/exports/user/take-photo.png, id=334, 376.40625pt x 815.045pt>
 File: assets/images/exports/user/take-photo.png Graphic file (type png)
 <use assets/images/exports/user/take-photo.png>
 Package pdftex.def Info: assets/images/exports/user/take-photo.png  used on inp
-ut line 173.
+ut line 174.
 (pdftex.def)             Requested size: 117.00119pt x 253.34534pt.
-<assets/images/exports/user/confirm-photo.png, id=260, 376.40625pt x 815.045pt>
+<assets/images/exports/user/confirm-photo.png, id=335, 376.40625pt x 815.045pt>
 
 File: assets/images/exports/user/confirm-photo.png Graphic file (type png)
 <use assets/images/exports/user/confirm-photo.png>
 Package pdftex.def Info: assets/images/exports/user/confirm-photo.png  used on 
-input line 174.
+input line 175.
 (pdftex.def)             Requested size: 117.00119pt x 253.34534pt.
 [10 <./assets/images/exports/user/home.png> <./assets/images/exports/user/home-
 no-map.png>]
-<assets/images/exports/user/violation-details.png, id=268, 376.40625pt x 815.04
+<assets/images/exports/user/violation-details.png, id=343, 376.40625pt x 815.04
 5pt>
 File: assets/images/exports/user/violation-details.png Graphic file (type png)
 <use assets/images/exports/user/violation-details.png>
 Package pdftex.def Info: assets/images/exports/user/violation-details.png  used
- on input line 180.
+ on input line 181.
 (pdftex.def)             Requested size: 117.00119pt x 253.34534pt.
-<assets/images/exports/user/account-info.png, id=269, 376.40625pt x 815.045pt>
+<assets/images/exports/user/account-info.png, id=344, 376.40625pt x 815.045pt>
 File: assets/images/exports/user/account-info.png Graphic file (type png)
 <use assets/images/exports/user/account-info.png>
 Package pdftex.def Info: assets/images/exports/user/account-info.png  used on i
-nput line 181.
+nput line 182.
 (pdftex.def)             Requested size: 117.00119pt x 253.34534pt.
-<assets/images/exports/authority/sign-in.png, id=270, 1927.2pt x 1084.05pt>
+<assets/images/exports/authority/sign-in.png, id=345, 1927.2pt x 1084.05pt>
 File: assets/images/exports/authority/sign-in.png Graphic file (type png)
 <use assets/images/exports/authority/sign-in.png>
 Package pdftex.def Info: assets/images/exports/authority/sign-in.png  used on i
-nput line 187.
+nput line 188.
 (pdftex.def)             Requested size: 390.0pt x 219.37006pt.
  [11 <./assets/images/exports/user/sign-up.png> <./assets/images/exports/user/s
 ign-in.png> <./assets/images/exports/user/take-photo.png> <./assets/images/expo
 rts/user/confirm-photo.png>]
-<assets/images/exports/authority/reports-list.png, id=281, 1927.2pt x 1084.05pt
+<assets/images/exports/authority/reports-list.png, id=356, 1927.2pt x 1084.05pt
 >
 File: assets/images/exports/authority/reports-list.png Graphic file (type png)
 <use assets/images/exports/authority/reports-list.png>
 Package pdftex.def Info: assets/images/exports/authority/reports-list.png  used
- on input line 193.
+ on input line 194.
 (pdftex.def)             Requested size: 390.0pt x 219.37006pt.
-<assets/images/exports/authority/suggestions-list.png, id=282, 1927.2pt x 1084.
+<assets/images/exports/authority/suggestions-list.png, id=357, 1927.2pt x 1084.
 05pt>
 File: assets/images/exports/authority/suggestions-list.png Graphic file (type p
 ng)
 <use assets/images/exports/authority/suggestions-list.png>
 Package pdftex.def Info: assets/images/exports/authority/suggestions-list.png  
-used on input line 199.
+used on input line 200.
 (pdftex.def)             Requested size: 390.0pt x 219.37006pt.
  [12 <./assets/images/exports/user/violation-details.png> <./assets/images/expo
 rts/user/account-info.png> <./assets/images/exports/authority/sign-in.png>] [13
  <./assets/images/exports/authority/reports-list.png> <./assets/images/exports/
 authority/suggestions-list.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
 
 [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 232--234
+Underfull \hbox (badness 10000) in paragraph at lines 233--235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--234
+Underfull \hbox (badness 10000) in paragraph at lines 233--235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--248
+Underfull \hbox (badness 10000) in paragraph at lines 247--249
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--248
+Underfull \hbox (badness 10000) in paragraph at lines 247--249
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 258--260
+Underfull \hbox (badness 10000) in paragraph at lines 259--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--260
+Underfull \hbox (badness 10000) in paragraph at lines 259--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--267
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--267
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--274
+Underfull \hbox (badness 10000) in paragraph at lines 273--275
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--274
+Underfull \hbox (badness 10000) in paragraph at lines 273--275
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 281--283
+Underfull \hbox (badness 10000) in paragraph at lines 282--284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--283
+Underfull \hbox (badness 10000) in paragraph at lines 282--284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--290
+Underfull \hbox (badness 10000) in paragraph at lines 289--291
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--290
+Underfull \hbox (badness 10000) in paragraph at lines 289--291
 
  []
 
-[18] [19]
-Overfull \hbox (13.18149pt too wide) in paragraph at lines 324--324
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--299
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--299
+
+ []
+
+[18]
+Overfull \hbox (44.13892pt too wide) in paragraph at lines 306--329
+ [] 
+ []
+
+
+Overfull \hbox (54.45686pt too wide) in paragraph at lines 332--356
+ [] 
+ []
+
+[19]
+Overfull \hbox (91.55234pt too wide) in paragraph at lines 360--384
+ [] 
+ []
+
+
+Overfull \hbox (55.56657pt too wide) in paragraph at lines 387--411
+ [] 
+ []
+
+[20]
+Overfull \hbox (100.5425pt too wide) in paragraph at lines 415--439
+ [] 
+ []
+
+
+Overfull \hbox (77.95662pt too wide) in paragraph at lines 442--472
+ [] 
+ []
+
+[21]
+Overfull \hbox (47.99443pt too wide) in paragraph at lines 476--496
+ [] 
+ []
+
+
+Overfull \hbox (90.88148pt too wide) in paragraph at lines 499--526
+ [] 
+ []
+
+[22]
+Overfull \hbox (100.8036pt too wide) in paragraph at lines 530--552
+ [] 
+ []
+
+<assets/sequence_diagrams/exports/registration_private_subject.pdf, id=425, 598
+.15468pt x 846.0408pt>
+File: assets/sequence_diagrams/exports/registration_private_subject.pdf Graphic
+ file (type pdf)
+<use assets/sequence_diagrams/exports/registration_private_subject.pdf>
+Package pdftex.def Info: assets/sequence_diagrams/exports/registration_private_
+subject.pdf  used on input line 557.
+(pdftex.def)             Requested size: 390.0pt x 551.63698pt.
+[23] [24]
+Overfull \vbox (29.47029pt too high) has occurred while \output is active []
+
+
+[25 <./assets/sequence_diagrams/exports/registration_private_subject.pdf>]
+<assets/sequence_diagrams/exports/login_private_subject.pdf, id=448, 598.15468p
+t x 846.0408pt>
+File: assets/sequence_diagrams/exports/login_private_subject.pdf Graphic file (
+type pdf)
+<use assets/sequence_diagrams/exports/login_private_subject.pdf>
+Package pdftex.def Info: assets/sequence_diagrams/exports/login_private_subject
+.pdf  used on input line 563.
+(pdftex.def)             Requested size: 390.0pt x 551.63698pt.
+
+[26]
+Overfull \vbox (7.22029pt too high) has occurred while \output is active []
+
+
+[27 <./assets/sequence_diagrams/exports/login_private_subject.pdf>]
+<assets/sequence_diagrams/exports/login_public_subject.pdf, id=466, 598.15468pt
+ x 846.0408pt>
+File: assets/sequence_diagrams/exports/login_public_subject.pdf Graphic file (t
+ype pdf)
+<use assets/sequence_diagrams/exports/login_public_subject.pdf>
+Package pdftex.def Info: assets/sequence_diagrams/exports/login_public_subject.
+pdf  used on input line 569.
+(pdftex.def)             Requested size: 390.0pt x 551.63698pt.
+ [28]
+Overfull \vbox (7.22029pt too high) has occurred while \output is active []
+
+
+[29 <./assets/sequence_diagrams/exports/login_public_subject.pdf>]
+<assets/sequence_diagrams/exports/workflow_private_subject.pdf, id=484, 586.109
+68pt x 1078.0275pt>
+File: assets/sequence_diagrams/exports/workflow_private_subject.pdf Graphic fil
+e (type pdf)
+<use assets/sequence_diagrams/exports/workflow_private_subject.pdf>
+Package pdftex.def Info: assets/sequence_diagrams/exports/workflow_private_subj
+ect.pdf  used on input line 575.
+(pdftex.def)             Requested size: 390.0pt x 717.33987pt.
+ [30]
+Overfull \vbox (172.92319pt too high) has occurred while \output is active []
+
+
+[31 <./assets/sequence_diagrams/exports/workflow_private_subject.pdf>]
+<assets/sequence_diagrams/exports/workflow_public_subject_1.pdf, id=503, 581.29
+17pt x 485.89528pt>
+File: assets/sequence_diagrams/exports/workflow_public_subject_1.pdf Graphic fi
+le (type pdf)
+<use assets/sequence_diagrams/exports/workflow_public_subject_1.pdf>
+Package pdftex.def Info: assets/sequence_diagrams/exports/workflow_public_subje
+ct_1.pdf  used on input line 581.
+(pdftex.def)             Requested size: 390.0pt x 326.00041pt.
+ [32 <./assets/sequence_diagrams/exports/workflow_public_subject_1.pdf>]
+Overfull \hbox (13.18149pt too wide) in paragraph at lines 615--615
 []\OT1/cmr/bx/n/17.28 FORMAL ANAL-Y-SIS US-ING AL-LOY: This
  []
 
 
-Overfull \hbox (2.28984pt too wide) in paragraph at lines 324--324
+Overfull \hbox (2.28984pt too wide) in paragraph at lines 615--615
 \OT1/cmr/bx/n/17.28 the sound-ness and cor-rect-ness of the model,
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 356.
-[20] [21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 356.
+[33]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 647.
+ [34]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 647.
  (IngSoft2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 356.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 356.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 647.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 647.
+Package rerunfilecheck Info: File `IngSoft2.out' has not changed.
+(rerunfilecheck)             Checksum: 5A140A41327FF8CB8AFD4579417F58F7;4102.
 
-
-Package rerunfilecheck Warning: File `IngSoft2.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `IngSoft2.out':
-(rerunfilecheck)             Before: 7286A40F23AB95B43546768EEFDBF5D9;2983
-(rerunfilecheck)             After:  D171FEF7EC753F010023164BD9F02BE9;2903.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 356.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 647.
  ) 
 Here is how much of TeX's memory you used:
- 6505 strings out of 492452
- 96920 string characters out of 3119596
- 185070 words of memory out of 3000000
- 10700 multiletter control sequences out of 15000+200000
+ 6586 strings out of 492452
+ 99853 string characters out of 3119596
+ 185125 words of memory out of 3000000
+ 10746 multiletter control sequences out of 15000+200000
  13186 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,6n,28p,590b,382s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{subsubsection.3.5.3} has been referenced but does
- not exist, replaced by a fixed one
-
-<C:/Users/Utente/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb><C:/Users/Utente/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb><C:/Users/Utente/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Utente/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on IngSoft2.pdf (21 pages, 3861973 bytes).
+ 31i,6n,28p,590b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Utente/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmbx12.pfb><C:/Users/Utente/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr12.pfb><C:/Users/Utente/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Utente/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on IngSoft2.pdf (34 pages, 4145370 bytes).
 PDF statistics:
- 380 PDF objects out of 1000 (max. 8388607)
- 87 named destinations out of 1000 (max. 500000)
- 372 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 566 PDF objects out of 1000 (max. 8388607)
+ 116 named destinations out of 1000 (max. 500000)
+ 517 words of extra memory for PDF output out of 10000 (max. 10000000)
 
