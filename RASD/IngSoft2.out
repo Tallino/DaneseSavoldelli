@@ -47,6 +47,11 @@
 \BOOKMARK [3][-]{subsubsection.3.8.3}{Security}{subsection.3.8}% 47
 \BOOKMARK [3][-]{subsubsection.3.8.4}{Maintainability}{subsection.3.8}% 48
 \BOOKMARK [3][-]{subsubsection.3.8.5}{Portability}{subsection.3.8}% 49
-\BOOKMARK [1][-]{section.4}{FORMAL ANALYSIS USING ALLOY: This section should include a brief presentation of the main objectives driving the formal modeling activity, as well as a description of the model itself, what can be proved with it, and why what is proved is important given the problem at hand. To show the soundness and correctness of the model, this section can show some worlds obtained by running it, and/or the results of the checks performed on meaningful assertions}{}% 50
-\BOOKMARK [1][-]{section.5}{EFFORT SPENT}{}% 51
-\BOOKMARK [1][-]{section.6}{REFERENCES}{}% 52
+\BOOKMARK [1][-]{section.4}{FORMAL ANALYSIS USING ALLOY}{}% 50
+\BOOKMARK [2][-]{subsection.4.1}{Purpose of the Model}{section.4}% 51
+\BOOKMARK [2][-]{subsection.4.2}{Alloy Model}{section.4}% 52
+\BOOKMARK [2][-]{subsection.4.3}{Generated World}{section.4}% 53
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Description}{subsection.4.3}% 54
+\BOOKMARK [1][-]{section.5}{EFFORT SPENT}{}% 55
+\BOOKMARK [1][-]{section.6}{REFERENCES}{}% 56
+\BOOKMARK [2][-]{subsection.6.1}{Tools}{section.6}% 57

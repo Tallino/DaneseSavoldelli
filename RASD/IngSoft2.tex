@@ -8,7 +8,7 @@
 \usepackage[hidelinks]{hyperref}
 
 \author{Giancarlo Danese - 945265 \\
-Davide Savoldelli - } 
+Davide Savoldelli - 928676} 
 \date{A.Y. 2019/2020 - Prof. Di Nitto Elisabetta}
 
 
@@ -71,6 +71,7 @@ Authorities will have the chance to mine the information retrieved in the databa
 				\item {App}: application.
 			\end{itemize}
 \subsection{Revision history} 
+\newpage
 \subsection{Reference Documents} 
 \begin{itemize}
 				\item Specification Document "SafeStreets Mandatory Project Assignment"
@@ -554,33 +555,34 @@ Ciro is in his office watching the Unsafe Areas map of his city. In particular, 
 \subsubsection{User Registration}
 	\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{assets/sequence_diagrams/exports/registration_private_subject.pdf}
+				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{assets/sequence_diagrams/exports/registration_private_subject.pdf}
 				\label{fig:registration_sequence}
 			\end{figure}
 \subsubsection{User Login}
 \begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{assets/sequence_diagrams/exports/login_private_subject.pdf}
-				\label{fig:registration_sequence}
+				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{assets/sequence_diagrams/exports/login_private_subject.pdf}
+				\label{fig:loginUser_sequence}
 			\end{figure}
 \subsubsection{Authority Login}
 \begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{assets/sequence_diagrams/exports/login_public_subject.pdf}
-				\label{fig:registration_sequence}
+				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{assets/sequence_diagrams/exports/login_public_subject.pdf}
+				\label{fig:loginAuth_sequence}
 			\end{figure}
 \subsubsection{Violation Reporting}
 \begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{assets/sequence_diagrams/exports/workflow_private_subject.pdf}
-				\label{fig:registration_sequence}
+				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{assets/sequence_diagrams/exports/workflow_private_subject.pdf}
+				\label{fig:workflow1_sequence}
 			\end{figure}
 \subsubsection{Violation Solving}
 \begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{assets/sequence_diagrams/exports/workflow_public_subject_1.pdf}
-				\label{fig:registration_sequence}
+				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{assets/sequence_diagrams/exports/workflow_public_subject_1.pdf}
+				\label{fig:workflow2_sequence}
 			\end{figure}
+\newpage
 \subsection{Performance Requirements}
 	The system must be able to handle a big quantity of reports with several images attached throughout the day. In order to improve the performance of the system, SafeStreets should rely on lightweight TCP connections.\\
 	For what concerns the Violations/Suggestions Map, the map scrolling must be fluid and responsive, the violation alerts clear and the login process for both users and authorities must be fast and reliable
@@ -606,13 +608,62 @@ Since personal information is stored, the system guarantees not to divulgate the
 \subsubsection{Maintainability}
 Enforced by the usage of specific design patterns and the provided hardware/software requirements, the software must be easy to fix and modifiy (or maintain) in the future
 \subsubsection{Portability}
-The software is generally projected for every type of mobile device, such as tablets and smartphones, and every type of OS, such as iOS or Android. Specifically for authorities, the Web App is compatible with every known browser  
-\section{FORMAL ANALYSIS USING ALLOY: This section should include a brief presentation of the 
-main objectives driving the formal modeling activity, as well as a description of the model 
-itself, what can be proved with it, and why what is proved is important given the problem at 
-hand. To show  the soundness and correctness of the model,  this section can show some
-worlds obtained by running it, and/or the results of the checks performed on meaningful 
-assertions}
+The software is generally projected for every type of mobile device, such as tablets and smartphones, and every type of OS, such as iOS or Android. Specifically for authorities, the Web App is compatible with every known browser
+\\\\
+\section{FORMAL ANALYSIS USING ALLOY}
+\subsection{Purpose of the Model}
+Through this model we want to formalize some fundamental aspects of SafeStreets
+\begin{itemize}
+				\item All the users that register to the system, must have a unique e-mail/telephone number and their data must be saved into the database. \newline The same must happen for authorities, they all must have a unique AUC and/or DBP
+				\item All the reports must be unique and no more than one report for the same violation must be in the queued violations set. \newline In case the same violation is reported more than once, that reports' priority will increase
+				\item All reports which stay in the queue for more than 7 days, will be deleted
+\end{itemize}
+\subsection{Alloy Model}
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{images/exports/user/Sig1.png}
+				\label{fig:signatures}
+			\end{figure}
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{images/exports/user/Sig2.png}
+				\label{fig:signatures}
+			\end{figure}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{images/exports/user/Facts1.png}
+				\label{fig:facts1}
+			\end{figure}
+				\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{images/exports/user/Facts2.png}
+				\label{fig:facts2}
+			\end{figure}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{images/exports/user/Assertions.png}
+				\label{fig:assertions}
+			\end{figure}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=1.2\linewidth]{images/exports/user/Predicates.png}
+				\label{fig:predicates}
+			\end{figure}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=1.2\linewidth]{images/exports/user/Checks.png}
+				\label{fig:check}
+			\end{figure}
+\subsection{Generated World}
+\subsubsection{Description}
+Here you can see there are two different type of "clients", users and authority, each with its own personal database.\newline
+The Report class, which links to the Violation one, is unfolded in the Database which contains several sets of all the violations and their corresponding reports.
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=1.5\linewidth]{images/exports/user/GeneratedWorld.png}
+				\label{fig:GenWorld}
+			\end{figure}
+\newpage
 \section{EFFORT SPENT}
 \begin{itemize}
 		\item Giancarlo Danese
@@ -624,6 +675,12 @@ assertions}
 				23/10/2019 & Domain Assumptions, User Characteristics & 1.5 \\
 				28/10/2019 & Definitions, Acronyms, Product Functions & 1 \\
 				30/10/2019 & Scenarios, Domains & 2 \\
+				02/11/2019 & Functional Requirements & 2 \\
+				04/11/2019 & Use Cases & 2 \\
+				06/11/2019 & Alloy & 2 \\
+				07/11/2019 & Alloy & 2 \\
+				08/11/2019 & Alloy & 2 \\
+				09/11/2019 & RASD Revision & 1 \\
 				\hline
 			\end{tabular}
 		\end{center}
@@ -637,11 +694,21 @@ assertions}
 				23/10/2019 & Document Structure & 2 \\
 				28/10/2019 & User Interfaces, Mock-ups & 3 \\
 				30/10/2019 & Goals, Requirements & 1 \\
+				02/11/2019 & Constraints, Interfaces & 2 \\
+				04/11/2019 & Sequence Diagrams & 2 \\
+				06/11/2019 & Alloy & 2 \\
+				07/11/2019 & Alloy & 2 \\
+				08/11/2019 & Alloy & 2 \\
+				09/11/2019 & RASD Revision & 1 \\
 				\hline
 			\end{tabular}
 		\end{center}
 	\end{itemize}
 \section{REFERENCES}
-
-
+\subsection{Tools}
+			\begin{itemize}
+				\item \textbf{Draw.io}: \texttt{https://www.draw.io/}
+				\item \textbf{TeXworks}: \texttt{http://www.tug.org/texworks/}
+				\item \textbf{Github}: \texttt{https://github.com/}
+			\end{itemize}
 \end {document}
