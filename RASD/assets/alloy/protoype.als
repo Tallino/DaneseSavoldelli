@@ -1,6 +1,5 @@
 
 --------SIGNATURES--------
-
 sig User {
 	email: one String,
 	telephone: one Int,	
@@ -29,8 +28,7 @@ sig Report {
 	priority > 0
 }
 
-sig Database {
-	
+sig Database {	
 	-- Queued: it represents the set of unverified 
 	-- reports that come from users
 
@@ -140,7 +138,7 @@ fact SuggestionExistance {
 	--he must be in the suggestion database
 
 	one s: Suggestion, db: Database |
-	(su in db.suggestions) iff (s.id>0)
+	(s in db.suggestions) iff (s.id>0)
 }
 
 
@@ -216,3 +214,24 @@ assert PriorityIncrease {
 }
 
 check PriorityIncrease for 10
+
+
+
+--------------------PREDICATES---------------------
+
+
+pred createUser[u: User, em: String, tel: Int, pass: String, i: Int] {
+	u.email = em
+	u.telephone = tel
+	u.password = pass
+	u.id = i
+}
+
+pred createAuth[a: Authority, au: String, dev: Int, i: Int] {
+		
+	a.auc=au
+	a.dbp=dev
+	a.id=i
+}
+
+
