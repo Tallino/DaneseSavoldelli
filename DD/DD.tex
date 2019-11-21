@@ -31,14 +31,45 @@
 
 \section{INTRODUCTION}
 \subsection{Purpose}
+This document represents the Design Document (DD) for SafeStreets software and contains a functional description of the system. Since we provide an overall guide of the systems' architecture, it's addressed to the software development team
 \subsection{Scope}
+SafeStreets will have an embedded algorithm which will analyze pictures of the vehicle plates sent by the user in order to recognize the vehicle. This information, together with the position of the vehicle and the type of violation that has been committed, will be stored in the software's database.
+\newline
+Authorities will have the chance to mine the information retrieved in the database by highlighting the streets/areas in which most of the violations are committed, the type of vehicles which commit most of the violations and which type of violations occur the most, suggesting possible interventions that could be taken.	
 \subsection{Definitions, Acronyms, Abbreviations}
+			\begin{itemize}
+				\item \texttt{User Device}: any compatible device with the SafeStreets application, like a smartphone or a computer
+				\item \texttt{Personal Information}: information provided by the user during the registration process. It includes name, surname, birth date, address, e-mail address, mobile number.
+				\item \texttt{Violation Report}: the act in which users can denounce violations on the streets, by providing the system its position, a photo and by selecting a violation from a precompiled menu
+				\item \texttt{Mobile App}: an application that can be run by mobile devices, both smartphones and smartwatches.
+				\item \texttt{Violations Map}: a map, accessible only by authorities, which contains notifications and alerts about all the unsafe areas where several violations are committed
+			\end{itemize}
+		\subsubsection{Acronyms}
+			\begin{itemize}
+				\item RASD: Requirements Analysis and Specification Document.
+				\item DD: Design Document
+				\item API: Application Programming Interface.
+				\item GPS: Global Positioning System.
+				\item PRA: Pubblico Registro Automobilistico
+				\item AUC: Authority Unique Code
+				\item DBP: Device-bound PIN
+			\end{itemize}
 \subsection{Revision History}
 \subsection{Reference Documents}
 \subsection{Document Structure}
 
 \section{ARCHITECTURAL DESIGN}
 \subsection{Overview: High-level components and their interaction}
+Our system can be summarized into 3 logical layers:
+\begin{itemize}
+\item \textbf{Presentation Layer}\\
+This layer is divided into the Client tier (Mobile App for users) and the Web tier (Web App for authorities). From here, users and authorities can access the softwares' functionality 
+\item \textbf{Application Layer}\\
+Users and authorities logged into the software can exploit all the system's functionalities and are directly linked to a Demilitarized Zone (DMZ), through which it communicates with the Application Server
+\item \textbf{Data Layer}\\
+Finally, here we have the Database Server and the Database itself, where all the data about the users, the authorities and the violations reported are stored and managed
+\end{itemize}
+A third-party ERP solution is how the System Administration is implemented, therefore we cannot provide information about its implementation
 \subsection{Component view}
 \subsection{Deployment view}
 \subsection{Runtime view: You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases}
