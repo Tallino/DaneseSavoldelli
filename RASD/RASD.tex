@@ -21,7 +21,7 @@ Davide Savoldelli - 928676}
 
  \begin{figure}
   \centering
-  \includegraphics[width=1.0\linewidth]{assets/images/logo_poli.jpg}
+  \includegraphics[width=1.0\linewidth]{../assets/images/logo_poli.jpg}
  \end{figure}
 
  \maketitle
@@ -41,14 +41,13 @@ Users will have the possibility to send pictures of the violation, together with
 \item {\textbf[}\textbf{G3}{\textbf]}: Allow users to check their reports history
 \item {\textbf[}\textbf{G4}{\textbf]}: Allow users to check/modify their account info
 \item {\textbf[}\textbf{G5}{\textbf]}: Allow authorities to register to the system with their personal data
-\item {\textbf[}\textbf{G6}{\textbf]}: Allow authorities to access the Violations/Suggestions map
-\item {\textbf[}\textbf{G7}{\textbf]}: Allow authorities to suggest interventions/take measures
-\item {\textbf[}\textbf{G8}{\textbf]}: Allow authorities to discard non-valid photos
+\item {\textbf[}\textbf{G6}{\textbf]}: Allow authorities to access and observe the Violations/Suggestions map
+\item {\textbf[}\textbf{G7}{\textbf]}: Allow authorities to discard non-valid photos
 \end{itemize}
 \subsection{Scope}
 SafeStreets will have an embedded algorithm which will analyze pictures of the vehicle plates sent by the user in order to recognize the vehicle. This information, together with the position of the vehicle and the type of violation that has been committed, will be stored in the software's database.
 \newline
-Authorities will have the chance to mine the information retrieved in the database by highlighting the streets/areas in which most of the violations are committed, the type of vehicles which commit most of the violations and which type of violations occur the most, suggesting possible interventions that could be taken.	
+Authorities will have the chance to observe the information retrieved and mined from the database, which highlights the streets/areas in which most of the violations are committed. \\ Moreover, authorities can observe the type of vehicles which commit most of the violations, which type of violations occur the most and some suggestions by Safestreets on what possible interventions can be taken on those streets.
 \subsection{Definitions, Acronyms, Abbreviations}
 			\begin{itemize}
 				\item \texttt{User Device}: any compatible device with the SafeStreets application, like a smartphone or a computer
@@ -56,6 +55,7 @@ Authorities will have the chance to mine the information retrieved in the databa
 				\item \texttt{Violation Report}: the act in which users can denounce violations on the streets, by providing the system its position, a photo and by selecting a violation from a precompiled menu
 				\item \texttt{Mobile App}: an application that can be run by mobile devices, both smartphones and smartwatches.
 				\item \texttt{Violations Map}: a map, accessible only by authorities, which contains notifications and alerts about all the unsafe areas where several violations are committed
+				\item \texttt{Suggestions}: an embedded algorithm will automatically suggest interventions to take in streets particularly full of violations
 			\end{itemize}
 		\subsubsection{Acronyms}
 			\begin{itemize}
@@ -66,11 +66,10 @@ Authorities will have the chance to mine the information retrieved in the databa
 				\item AUC: Authority Unique Code
 				\item DBP: Device-bound PIN
 			\end{itemize}
-		\subsubsection{Abbreviations}
-			\begin{itemize}
-				\item {App}: application.
-			\end{itemize}
-\subsection{Revision history} 
+\subsection{Revision history}
+\begin{itemize}
+\item \texttt{27/11/2019} Added Web Service/Server to all the Sequence Diagrams, added the Suggestion Request sequence diagram and corrected some discrepancies/clarifications regarding the Suggestions generating processes
+\end{itemize}
 \newpage
 \subsection{Reference Documents} 
 \begin{itemize}
@@ -97,20 +96,20 @@ Here you can see a high level UML Class Diagram. It describes the systems' struc
 
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=1.0\linewidth]{assets/images/exports/user/UML.png}
+						\includegraphics[width=1.0\linewidth]{../assets/images/exports/user/UML.png}
 						\caption{UML Class Diagram}
 						\label{}
 					\end{figure}
 Finally, below are two UML Statechart Diagrams, one for the user and the second one for authorities
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=1.0\linewidth]{assets/images/exports/user/StateChartDiagramUser.png}
+						\includegraphics[width=1.0\linewidth]{../assets/images/exports/user/StateChartDiagramUser.png}
 						\caption{Users' Statechart Diagram}
 						\label{}
 					\end{figure}
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=1.0\linewidth]{assets/images/exports/authority/StateChartDiagramAuthority.png}
+						\includegraphics[width=1.0\linewidth]{../assets/images/exports/authority/StateChartDiagramAuthority.png}
 						\caption{UML Class Diagram}
 						\label{}
 					\end{figure}
@@ -158,48 +157,48 @@ These mockups represent an idea of how the user's interface will be shown and ea
 You can also notice how SafeStreets provides the authorities' with a Web App which is separated both in functions and in design from the normal mobile app destinated to users.
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=0.4\linewidth]{assets/images/exports/user/home.png}
-						\includegraphics[width=0.4\linewidth]{assets/images/exports/user/home-no-map.png}
+						\includegraphics[width=0.4\linewidth]{../assets/images/exports/user/home.png}
+						\includegraphics[width=0.4\linewidth]{../assets/images/exports/user/home-no-map.png}
 						\caption{The Homepage with its photo button}
 						\label{}
 					\end{figure}
 				\begin{figure}[H]
 						\centering
-						\includegraphics[width=0.3\linewidth]{assets/images/exports/user/sign-up.png}
-						\includegraphics[width=0.3\linewidth]{assets/images/exports/user/sign-in.png}
+						\includegraphics[width=0.3\linewidth]{../assets/images/exports/user/sign-up.png}
+						\includegraphics[width=0.3\linewidth]{../assets/images/exports/user/sign-in.png}
 						\caption{The registration and login pages where you input your credentials}
 						\label{}
 					\end{figure}
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=0.3\linewidth]{assets/images/exports/user/take-photo.png}
-						\includegraphics[width=0.3\linewidth]{assets/images/exports/user/confirm-photo.png}
+						\includegraphics[width=0.3\linewidth]{../assets/images/exports/user/take-photo.png}
+						\includegraphics[width=0.3\linewidth]{../assets/images/exports/user/confirm-photo.png}
 						\caption{Snapshots from the photo-taking screen and the confirmation photo}
 						\label{}
 					\end{figure}
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=0.3\linewidth]{assets/images/exports/user/violation-details.png}
-						\includegraphics[width=0.3\linewidth]{assets/images/exports/user/account-info.png}
+						\includegraphics[width=0.3\linewidth]{../assets/images/exports/user/violation-details.png}
+						\includegraphics[width=0.3\linewidth]{../assets/images/exports/user/account-info.png}
 						\caption{The Violation Reporting functionality and the menu}
 						\label{}
 					\end{figure}
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=1.0\linewidth]{assets/images/exports/authority/sign-in.png}
+						\includegraphics[width=1.0\linewidth]{../assets/images/exports/authority/sign-in.png}
 						\caption{The login page for authorities}
 						\label{}
 					\end{figure}
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=1.0\linewidth]{assets/images/exports/authority/reports-list.png}
-						\caption{The Violations Map where authorities can post suggestions or look-up license plates}
+						\includegraphics[width=1.0\linewidth]{../assets/images/exports/authority/reports-list.png}
+						\caption{The Violations Map where authorities can solve violations or look-up license plates}
 						\label{}
 					\end{figure}
  					\begin{figure}[H]
 						\centering
-						\includegraphics[width=1.0\linewidth]{assets/images/exports/authority/suggestions-list.png}
-						\caption{The Suggestions Map where authorities can solve violations}
+						\includegraphics[width=1.0\linewidth]{../assets/images/exports/authority/suggestions-list.png}
+						\caption{The Suggestions Map where authorities can observe the suggestions Safestreets provided them}
 						\label{}
 					\end{figure}
 		\newpage
@@ -222,8 +221,8 @@ Marco decides to contribute to his cities' street security by registering to Saf
 Giovanni is a policeman who wants to register as an authority on the system. He makes a special request, sending his personal information and his authority identification to the system which checks it's validity and sends back to Davide an Authority Unique Code (AUC), which he will need to login, and a Device-bound PIN (DBP), which is bound to special devices in dotation to authorities only. He can now check the users' reports, issue fines and check the Unsafe Areas Map. 
 \subsubsection*{Scenario 3 - Violation Report}
 Roberto is a guy who lives in a street constantly full of double-parked cars. Tired of this situation, he decides to report them to the authorities throughout SafeStreets. He takes a picture of the car with the license plate fully visible, he lets the app track down his position and he selects a type of violation from the dropdown menu.
-\subsubsection*{Scenario 4 - Suggestion Report}
-Ciro is in his office watching the Unsafe Areas map of his city. In particular, he notices that there's an area in his city full of reports and violations of cars parking in the bike lane and therefore occupying it. So he decides to use the suggestion report function to hint the municipality in placing a protection barrier parallel to the edge of the bike lane in order to prevent cars from parking on them.
+\subsubsection*{Scenario 4 - Suggestion Observation}
+Ciro is in his office watching the Unsafe Areas map of his city. In particular, he notices that there's an area in his city full of reports and violations of cars parking in the bike lane and therefore occupying it. He also notices how SafeStreets' hint is to place a protection barrier parallel to the edge of the bike lane in order to prevent cars from parking on them. So he decides to take those measures following SafeStreets suggestions
 \newpage
 \subsection{Functional Requirements}
 \subsubsection*{{[}{G1}{]}: Allow users to register to the system with their personal data}
@@ -277,7 +276,7 @@ Ciro is in his office watching the Unsafe Areas map of his city. In particular, 
 \item {[R14]}: The system must verify there are no other registered authorities with the same identification
 \item {[R15]}: In order to register successfully, the system must oblige the authority to accept the data privacy policies and conditions
 \end{itemize}
-\subsubsection*{{[}{G6}{]}: Allow authorities to access the Violations/Suggestions map}
+\subsubsection*{{[}{G6}{]}: Allow authorities to access and observe the Violations/Suggestions map}
 \begin{itemize}
 \item {[D10]}: Authorities must have access to the internet
 \item {[D12]}: Authorities must always check the validity of the photos taken
@@ -285,20 +284,13 @@ Ciro is in his office watching the Unsafe Areas map of his city. In particular, 
 \item {[R16]}: The system must allow authorities to access the Violations Map and see which type of violations are being committed where
 \item {[R17]}: The system must allow authorities to switch to the Suggestions Map and see which suggestions have been posted for each area
 \end{itemize}
-\subsubsection*{{[}{G7}{]}: Allow authorities to suggest interventions or take measures}
-\begin{itemize}
-\item {[D10]}: Authorities must have access to the internet
-\\\\
-\item {[R18]}: The system must allow authorities to suggest interventions
-\item {[R19]}: The system must allow authorities to take measures such as issuing fines etc.
-\end{itemize}
-\subsubsection*{{[}{G8}{]}: Allow authorities to discard non-valid photos}
+\subsubsection*{{[}{G7}{]}: Allow authorities to discard non-valid photos}
 \begin{itemize}
 \item {[D10]}: Authorities must have access to the internet
 \item {[D12]}: Authorities must always check the validity of the photos taken
 \\\\
-\item {[R20]}: The system must allow authorities to discard pictures which don't represent a vehicle
-\item {[R21]}: The system must allow authorities to discard pictures of vehicles which aren't committing any violation
+\item {[R18]}: The system must allow authorities to discard pictures which don't represent a vehicle
+\item {[R19]}: The system must allow authorities to discard pictures of vehicles which aren't committing any violation
 \end{itemize}
 \newpage
 \subsection{Use Cases}
@@ -526,11 +518,11 @@ Ciro is in his office watching the Unsafe Areas map of his city. In particular, 
 			\end{tabular}
 		\end{center}
 \newpage
-\subsubsection{Suggestion Posting}
+\subsubsection{Suggestion Observing}
 \begin{center}
 			\begin{tabular}{| c | l |}
 				\hline
-				\textbf{NAME} & Suggestion Posting\\
+				\textbf{NAME} & Suggestion Observing\\
 				\hline
 				\textbf{ACTOR} & Authority \\
 				\hline
@@ -539,15 +531,17 @@ Ciro is in his office watching the Unsafe Areas map of his city. In particular, 
 				\textbf{EVENTS FLOW}  &
 				1. The authority clicks on the show Suggestions button\\
 				&2. The authority clicks on the blue alert of the interested area\\ 
-				&3. The authority writes a suggestion about what could be done \\
-				&5. The authority marks the violation as "solved"\\
+				&3. The authority observes which interventions \\
+				& 	SafeStreets' algorithms have suggested \\
+				&4. The authority can call back the municipality and \\
+				& order them to take the suggested measures\\
 				\hline
-				\textbf{EXIT CONDITIONS} & The authority has successfully posted a suggestion \\ 
+				\textbf{EXIT CONDITIONS} & The authority has successfully observed a suggestion \\ 
 				\hline
 				\textbf{EXCEPTIONS} &
 				1. The authority is not logged in\\
 				&2. The authority isn't on the suggestions map\\
-				&3. The authority doesn't fill in the suggestion text box\\
+				&3. There aren't any suggestions in that area\\
 				\hline
 			\end{tabular}
 		\end{center}
@@ -555,32 +549,38 @@ Ciro is in his office watching the Unsafe Areas map of his city. In particular, 
 \subsubsection{User Registration}
 	\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{assets/sequence_diagrams/exports/registration_private_subject.pdf}
+				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{../assets/sequence_diagrams/exports/registration_private_subject.pdf}
 				\label{fig:registration_sequence}
 			\end{figure}
 \subsubsection{User Login}
 \begin{figure}[H]
 				\centering
-				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{assets/sequence_diagrams/exports/login_private_subject.pdf}
+				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{../assets/sequence_diagrams/exports/login_private_subject.pdf}
 				\label{fig:loginUser_sequence}
 			\end{figure}
 \subsubsection{Authority Login}
 \begin{figure}[H]
 				\centering
-				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{assets/sequence_diagrams/exports/login_public_subject.pdf}
+				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{../assets/sequence_diagrams/exports/login_public_subject.pdf}
 				\label{fig:loginAuth_sequence}
 			\end{figure}
 \subsubsection{Violation Reporting}
 \begin{figure}[H]
 				\centering
-				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{assets/sequence_diagrams/exports/workflow_private_subject.pdf}
+				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{../assets/sequence_diagrams/exports/workflow_private_subject.pdf}
 				\label{fig:workflow1_sequence}
 			\end{figure}
 \subsubsection{Violation Solving}
 \begin{figure}[H]
 				\centering
-				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{assets/sequence_diagrams/exports/workflow_public_subject_1.pdf}
+				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{../assets/sequence_diagrams/exports/workflow_public_subject_1.pdf}
 				\label{fig:workflow2_sequence}
+			\end{figure}
+\subsubsection{Suggestion Request}
+\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\textwidth,height=0.9\textheight,keepaspectratio]{../assets/sequence_diagrams/exports/suggestions_workflow.pdf}
+				\label{fig:suggestion_sequence}
 			\end{figure}
 \newpage
 \subsection{Performance Requirements}
@@ -621,37 +621,37 @@ Through this model we want to formalize some fundamental aspects of SafeStreets
 \subsection{Alloy Model}
 \begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{images/exports/user/Sig1.png}
+				\includegraphics[width=1\linewidth]{../assets/images/exports/user/Sig1.png}
 				\label{fig:signatures}
 			\end{figure}
 \begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{images/exports/user/Sig2.png}
+				\includegraphics[width=1\linewidth]{../assets/images/exports/user/Sig2.png}
 				\label{fig:signatures}
 			\end{figure}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{images/exports/user/Facts1.png}
+				\includegraphics[width=1\linewidth]{../assets/images/exports/user/Facts1.png}
 				\label{fig:facts1}
 			\end{figure}
 				\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{images/exports/user/Facts2.png}
+				\includegraphics[width=1\linewidth]{../assets/images/exports/user/Facts2.png}
 				\label{fig:facts2}
 			\end{figure}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\linewidth]{images/exports/user/Assertions.png}
+				\includegraphics[width=1\linewidth]{../assets/images/exports/user/Assertions.png}
 				\label{fig:assertions}
 			\end{figure}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1.2\linewidth]{images/exports/user/Predicates.png}
+				\includegraphics[width=1.2\linewidth]{../assets/images/exports/user/Predicates.png}
 				\label{fig:predicates}
 			\end{figure}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1.2\linewidth]{images/exports/user/Checks.png}
+				\includegraphics[width=1.2\linewidth]{../assets/images/exports/user/Checks.png}
 				\label{fig:check}
 			\end{figure}
 \subsection{Generated World}
@@ -660,7 +660,7 @@ Here you can see there are two different type of "clients", users and authority,
 The Report class, which links to the Violation one, is unfolded in the Database which contains several sets of all the violations and their corresponding reports.
 \begin{figure}[H]
 				\centering
-				\includegraphics[width=1.5\linewidth]{images/exports/user/GeneratedWorld.png}
+				\includegraphics[width=1.5\linewidth]{../assets/images/exports/user/GeneratedWorld.png}
 				\label{fig:GenWorld}
 			\end{figure}
 \newpage
