@@ -85,7 +85,7 @@ Our system can be summarized into 3 logical layers:
 \item \textbf{Presentation Layer}\\
 This layer is divided into the Client tier (Mobile App for users) and the Web tier (Web App for authorities). From here, user, authorities and third parties, such as the municipality, can access the system's functionalities and the users' data through the Web Server, protected by a DeMilitarized Zone (DMZ)
 \item \textbf{Application Layer}\\
-In this layer the application server acts as a set of components accessible to the software developer through a standard API defined for the platform itself. We decided to separate the Application Server from the Web Server mainly for security reasons, and secondly because our application server targeta much more than just Web page generation: it implements services like clustering and load-balancing.
+In this layer the application server acts as a set of components accessible to the software developer through a standard API defined for the platform itself. We decided to separate the Application Server from the Web Server mainly for security reasons, and secondly because our application server targets much more than just Web page generation: it implements services like clustering and load-balancing.
 \item \textbf{Data Layer}\\
 Here we have the Database Server and the Database itself, where all the data about the users, the authorities and the violations reported are stored\\
 \end{itemize}
@@ -98,34 +98,53 @@ The following diagrams represents the systems' components and its interfaces thr
 \end{itemize}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=1.0\linewidth]{../assets/images/COMPONENT VIEW.png}
+		\includegraphics[width=0.9\linewidth]{../assets/images/COMPONENT VIEW.png}
 	\end{figure}
+
+
 \subsubsection{User Mobile Services Projection}
-The User Mobile Services Projection is subdivided into 4 modules: the \texttt{Subscription Manager Module}, \texttt{Violation Reporting Module}, the \texttt{Reports History Module} and the \texttt{Profile Manager Module}
+The User Mobile Services Projection is subdivided into 4 modules: the \texttt{Subscription Manager Module}, \texttt{Violation Reporting Module}, the \texttt{Reports History Module} and the \texttt{Profile Manager Module}. These components provide to the User Mobile Application the following interfaces: \texttt{SubscriptionManager}, \texttt{ViolationReport}, \texttt{ReportsHistory} and \texttt{ProfileManager}. These components also need to communicate with a \texttt{SMS Service}, a \texttt{Maps Service}, the \texttt{Camera Service}, the \texttt{ANPR Service} and finally a \texttt{DBMS} which must guarantee full availability and functionality to the Application for a better user experience
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.2\linewidth]{../assets/images/USER PROJECTION.png}
+	\end{figure}
+As you can see, every single module have access to the \texttt{DBMS} and the \texttt{Subscription Manager Module} interacts with a \texttt{SMS Service}, where a SMS is sent with a verification code to subscribe to the system. The \texttt{Violation Reporting Module}, the most important in the whole User Mobile Services, interfaces with a \texttt{Maps Service} for the localization of the vehicle, a \texttt{Camera Service} for the acquisition of the vehicles photo and a \texttt{ANPR Service} (Automatic Number Plate Recognition) which recognizes the license plate from the photo and saves it in the Violation Report 
 \subsubsection*{Module Functionalities}
 \begin{itemize}
-\item \textbf{Subscription Manager Module}: this module manages the registration and login processes of the user. It will allow them to insert their personal data and register to the system, and, subsequently, login with the same credentials.
-\item \textbf{Violation Reporting Module}: this module is very important as it enables the user to report street/parking violations by taking pictures of the vehicle involved and uploading them to the system
+\item \textbf{Subscription Manager Module}: this module manages the registration and login processes of the user. It will allow them to insert their personal data and register to the system, and, subsequently, login with the same credentials. 
+\item \textbf{Violation Reporting Module}: this module is the most important as it enables the user to report street/parking violations by taking pictures of the vehicle involved and uploading them to the system. 
 \item \textbf{Reports History Module}: this module manages the users' report history, and, when requested, queries the data from the database and shows it to the user
-\item \textbf{Profile Manager Module}: this module provides all the necessary functions concerning the update and deletion of any existing profile information
+\item \textbf{Profile Manager Module}: this module provides all the necessary functions concerning the update and deletion of any existing profile information\\\\
 \end{itemize}
 
 \subsubsection{Authority Web Services Projection}
-The Authority Web Services Projection is subdivided into 4 modules: the \texttt{Data Access Module}, the \texttt{Authentication Manager Module}, the \texttt{Violation Solving Module} and the \texttt{Suggestion Generating Module}
+The Authority Web Services Projection is subdivided into 4 modules: the \texttt{Data Access Module}, the \texttt{Authentication Manager Module}, the \texttt{Violation Solving Module} and the \texttt{Suggestion Generating Module}. These components provide to the Authority Web Application the following interfaces: \texttt{Data Access}, \texttt{Authentication Manager}, \texttt{Violation Solving} and \texttt{Suggestion Generating} . These components also need to communicate with a \texttt{PRA Service}, \texttt{Machine Learning Service} and finally a \texttt{DBMS} for the same reasons mentioned above.
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.2\linewidth]{../assets/images/AUTH PROJECTION.png}
+	\end{figure}
+We can see here how authorities refer to the PRA (Pubblico Registro Automobilistico) to gather data from the license plates through the \texttt{PRA Service} while the \texttt{Machine Learning Service} is needed in order to generate suggestions for interventions to take in streets particularly full of violations.
 \subsubsection*{Module Functionalities}
 \begin{itemize}
-\item \textbf{Data Access Module}: this module deals with the access to violations reported by users, but no private data is shared 
+\item \textbf{Data Access Module}: this module deals with the access to violations reported by users, while no private data is accessed 
 \item \textbf{Authentication Manager Module}: this module manages the registration and login of the authority. It will allow them to insert their personal data and to receive their AUC and DBP in order to successfully register to the system.
 \item \textbf{Violation Solving Module}: this module lets the authority interact with the list of violations, checking their validity and solving them. 
 \item \textbf{Suggestion Generating Module}: this module manages the generation of suggestions on possible interventions to take in order to prevent violations from being committed in that precise area.
 \end{itemize}
+\newpage
 \subsubsection{Third Party Services Projection}
-The Third Party Services Projection is subdivided into 2 modules: the \texttt{Data Sharing Module} and the \texttt{Authentication Manager Module}
+The Third Party Services Projection is subdivided into 2 modules: the \texttt{Data Sharing Module} and the \texttt{Authentication Manager Module}. These components provide to the Third Party Web Application the following interfaces: \texttt{DataSharing} and \texttt{Authentication Manager}. These components won't communicate with any external API, due to the fact that third party's only task (municipality) is to share its data with SafeStreets
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.2\linewidth]{../assets/images/THIRD PARTY PROJECTION.png}
+	\end{figure}
+As said above, in our case, the Third Party is intended as the municipality, which have the only task of accessing the software and sharing their data regarding the reports with SafeStreets so when an authority requests it, the software will generate the above mentioned suggestions on interventions.
 \subsubsection*{Module Functionalities}
 \begin{itemize}
-\item \textbf{Data Sharing Module}: this module is in charge of the sharing violation-related mined data to authorities in order to generate suggestions on street interventions to take
+\item \textbf{Data Sharing Module}: this module is in charge of the sharing violation-related mined data to SafeStreets in order to generate suggestions on street interventions to take
 \item \textbf{Authentication Manager Module}: this module manages the authentication procedure the municipality must execute to access the Web App
 \end{itemize}
+\newpage
 \subsection{Deployment view}
 In order to deploy the system, we decided to implement a 4-tier architecture:
 \begin{itemize}
@@ -161,7 +180,7 @@ The final tier corresponds to the Database Server, where the DBMS is running. We
 		\caption{Entire System Deployment View with Tier 4}
 	\end{figure}
 \end{itemize}
-\subsection{Runtime view: You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases}
+\subsection{Runtime view}
 \subsection{Component interfaces}
 \subsection{Selected architectural styles and patterns}
 \subsubsection{Design Patterns}
@@ -173,10 +192,37 @@ Nowadays, most Mobile and Web Applications rely on this pattern. These type of a
 \subsection{Other design decisions}
 \section{USER INTERFACE DESIGN}
 As already mentioned in the \texttt{Requirements Analysis and Specification Document} (RASD), our idea is to provide users with a Mobile App (for smartphones and tablets) and authorities with a Web App (for computers).\\ The applications will be different both in functionalities and in style, and we decided to separate the two and therefore make them exclusive, because of the different use and different authentication method they have.\\ For a closer look at what the two interfaces look like, we invite you to check our RASD where several mock-ups have been presented
-\section{REQUIREMENTS TRACEABILITY: Explain how the requirements you have defined in the RASD map to the design elements that you have defined in this document.}
-\section{IMPLEMENTATION, INTEGRATION AND TEST PLAN: Identify here the order in which you plan to implement the subcomponents of your system and the order in which you plan to integrate
-such subcomponents and test the integration.}
+\section{REQUIREMENTS TRACEABILITY}
+\section{IMPLEMENTATION, INTEGRATION AND TEST PLAN}
 \section{EFFORT SPENT}
+\begin{itemize}
+		\item Giancarlo Danese
+		\begin{center}
+			\begin{tabular}{| c | c | c |}
+				\hline
+				Day & Subject & Hours \\ \hline
+				18/11/2019 & Purpose, Scope & 2 \\
+				21/11/2019 & Architectural Design & 2\\
+				24/11/2019 & Diagrams & 2\\
+				27/11/2019 & Diagrams & 2\\
+				30/11/2019 & Component View & 2\\
+				\hline
+			\end{tabular}
+		\end{center}
+
+		\item Davide Savoldelli
+		\begin{center}
+			\begin{tabular}{| c | c | c |}
+				\hline
+				Day & Subject & Hours \\ \hline
+				18/11/2019 & Architectural Design & 1 \\
+				24/11/2019 & Diagrams & 2 \\
+				27/11/2019 & Diagrams & 2 \\
+				30/11/2019 & Deployment View & 2\\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{itemize}
 \section{REFERENCES}
 
 
