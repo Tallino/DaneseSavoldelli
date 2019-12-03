@@ -16,11 +16,13 @@
 \BOOKMARK [2][-]{subsection.2.3}{Deployment view}{section.2}% 16
 \BOOKMARK [2][-]{subsection.2.4}{Runtime view}{section.2}% 17
 \BOOKMARK [2][-]{subsection.2.5}{Component interfaces}{section.2}% 18
-\BOOKMARK [2][-]{subsection.2.6}{Selected architectural styles and patterns}{section.2}% 19
-\BOOKMARK [3][-]{subsubsection.2.6.1}{Design Patterns}{subsection.2.6}% 20
-\BOOKMARK [2][-]{subsection.2.7}{Other design decisions}{section.2}% 21
-\BOOKMARK [1][-]{section.3}{USER INTERFACE DESIGN}{}% 22
-\BOOKMARK [1][-]{section.4}{REQUIREMENTS TRACEABILITY}{}% 23
-\BOOKMARK [1][-]{section.5}{IMPLEMENTATION, INTEGRATION AND TEST PLAN}{}% 24
-\BOOKMARK [1][-]{section.6}{EFFORT SPENT}{}% 25
-\BOOKMARK [1][-]{section.7}{REFERENCES}{}% 26
+\BOOKMARK [3][-]{subsubsection.2.5.1}{External Interfaces}{subsection.2.5}% 19
+\BOOKMARK [2][-]{subsection.2.6}{Selected architectural styles and patterns}{section.2}% 20
+\BOOKMARK [3][-]{subsubsection.2.6.1}{Design Patterns}{subsection.2.6}% 21
+\BOOKMARK [3][-]{subsubsection.2.6.2}{RAPS Architecture}{subsection.2.6}% 22
+\BOOKMARK [2][-]{subsection.2.7}{Other design decisions}{section.2}% 23
+\BOOKMARK [1][-]{section.3}{USER INTERFACE DESIGN}{}% 24
+\BOOKMARK [1][-]{section.4}{REQUIREMENTS TRACEABILITY}{}% 25
+\BOOKMARK [1][-]{section.5}{IMPLEMENTATION, INTEGRATION AND TEST PLAN}{}% 26
+\BOOKMARK [1][-]{section.6}{EFFORT SPENT}{}% 27
+\BOOKMARK [1][-]{section.7}{REFERENCES}{}% 28

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.15)  2 DEC 2019 17:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.15)  3 DEC 2019 18:10
 entering extended mode
 **./DD.tex
 (DD.tex
@@ -330,7 +330,7 @@ LaTeX Info: Redefining \nameref on input line 20.
 \@outlinefile=\write3
 \openout3 = `DD.out'.
 
-<../assets/images/logo_poli.jpg, id=107, 578.16pt x 569.12625pt>
+<../assets/images/logo_poli.jpg, id=115, 578.16pt x 569.12625pt>
 File: ../assets/images/logo_poli.jpg Graphic file (type jpg)
 <use ../assets/images/logo_poli.jpg>
 Package pdftex.def Info: ../assets/images/logo_poli.jpg  used on input line 24.
@@ -365,7 +365,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 41.
 
 [3] [4]
-<../assets/sequence_diagrams/exports/architecture.pdf, id=164, 463.7325pt x 247
+<../assets/sequence_diagrams/exports/architecture.pdf, id=166, 463.7325pt x 247
 .8861pt>
 File: ../assets/sequence_diagrams/exports/architecture.pdf Graphic file (type p
 df)
@@ -390,13 +390,13 @@ Overfull \hbox (2.13954pt too wide) in paragraph at lines 96--97
 1/cmtt/m/n/12 Mobile Application\OT1/cmr/m/n/12 , for users.
  []
 
-<../assets/images/COMPONENT VIEW.png, id=230, 859.21pt x 603.25375pt>
+<../assets/images/COMPONENT VIEW.png, id=232, 859.21pt x 603.25375pt>
 File: ../assets/images/COMPONENT VIEW.png Graphic file (type png)
 <use ../assets/images/COMPONENT VIEW.png>
 Package pdftex.def Info: ../assets/images/COMPONENT VIEW.png  used on input lin
 e 101.
 (pdftex.def)             Requested size: 350.99762pt x 246.43355pt.
-<../assets/images/USER PROJECTION.png, id=232, 1084.05pt x 615.29875pt>
+<../assets/images/USER PROJECTION.png, id=234, 1084.05pt x 615.29875pt>
 File: ../assets/images/USER PROJECTION.png Graphic file (type png)
 <use ../assets/images/USER PROJECTION.png>
 Package pdftex.def Info: ../assets/images/USER PROJECTION.png  used on input li
@@ -436,7 +436,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
-<../assets/images/AUTH PROJECTION.png, id=244, 1092.08pt x 614.295pt>
+<../assets/images/AUTH PROJECTION.png, id=246, 1092.08pt x 614.295pt>
 File: ../assets/images/AUTH PROJECTION.png Graphic file (type png)
 <use ../assets/images/AUTH PROJECTION.png>
 Package pdftex.def Info: ../assets/images/AUTH PROJECTION.png  used on input li
@@ -461,7 +461,7 @@ anager\OT1/cmr/m/n/12 , \OT1/cmtt/m/n/12 Violation Solving \OT1/cmr/m/n/12 and
  []
 
 [8] [9 <../assets/images/AUTH PROJECTION.png>]
-<../assets/images/THIRD PARTY PROJECTION.png, id=256, 978.65625pt x 348.30125pt
+<../assets/images/THIRD PARTY PROJECTION.png, id=258, 978.65625pt x 348.30125pt
 >
 File: ../assets/images/THIRD PARTY PROJECTION.png Graphic file (type png)
 <use ../assets/images/THIRD PARTY PROJECTION.png>
@@ -474,7 +474,7 @@ Overfull \hbox (77.99881pt too wide) in paragraph at lines 139--140
  []
 
 [10 <../assets/images/THIRD PARTY PROJECTION.png>]
-<../assets/images/MOBILE APPLICATION COMP VIEW.png, id=263, 904.37875pt x 585.1
+<../assets/images/MOBILE APPLICATION COMP VIEW.png, id=265, 904.37875pt x 585.1
 8625pt>
 File: ../assets/images/MOBILE APPLICATION COMP VIEW.png Graphic file (type png)
 
@@ -493,7 +493,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--157
  []
 
 [11 <../assets/images/MOBILE APPLICATION COMP VIEW.png>]
-<../assets/images/tier1_tier2.png, id=270, 502.87875pt x 875.27pt>
+<../assets/images/tier1_tier2.png, id=272, 502.87875pt x 875.27pt>
 File: ../assets/images/tier1_tier2.png Graphic file (type png)
 <use ../assets/images/tier1_tier2.png>
 Package pdftex.def Info: ../assets/images/tier1_tier2.png  used on input line 1
@@ -510,7 +510,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 159--165
  []
 
 [12 <../assets/images/tier1_tier2.png>]
-<../assets/images/app_server.png, id=277, 502.87875pt x 583.17876pt>
+<../assets/images/app_server.png, id=279, 502.87875pt x 583.17876pt>
 File: ../assets/images/app_server.png Graphic file (type png)
 <use ../assets/images/app_server.png>
 Package pdftex.def Info: ../assets/images/app_server.png  used on input line 17
@@ -527,50 +527,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 167--173
  []
 
 [13 <../assets/images/app_server.png>]
-<../assets/images/ENTIRE SYSTEM.png, id=285, 1426.32875pt x 835.12pt>
+<../assets/images/ENTIRE SYSTEM.png, id=287, 1426.32875pt x 835.12pt>
 File: ../assets/images/ENTIRE SYSTEM.png Graphic file (type png)
 <use ../assets/images/ENTIRE SYSTEM.png>
 Package pdftex.def Info: ../assets/images/ENTIRE SYSTEM.png  used on input line
  179.
 (pdftex.def)             Requested size: 390.0pt x 228.33981pt.
- [14 <../assets/images/ENTIRE SYSTEM.png>]
-Overfull \hbox (25.41779pt too wide) in paragraph at lines 196--196
+ [14 <../assets/images/ENTIRE SYSTEM.png>] [15]
+<../assets/images/model-view-controller-light-blue.png, id=298, 481.8pt x 361.3
+5pt>
+File: ../assets/images/model-view-controller-light-blue.png Graphic file (type 
+png)
+<use ../assets/images/model-view-controller-light-blue.png>
+Package pdftex.def Info: ../assets/images/model-view-controller-light-blue.png 
+ used on input line 205.
+(pdftex.def)             Requested size: 390.0pt x 292.50995pt.
+ [16 <../assets/images/model-view-controller-light-blue.png>]
+<../assets/images/800px-Decorator_UML_class_diagram.png, id=304, 803.0pt x 635.
+37375pt>
+File: ../assets/images/800px-Decorator_UML_class_diagram.png Graphic file (type
+ png)
+<use ../assets/images/800px-Decorator_UML_class_diagram.png>
+Package pdftex.def Info: ../assets/images/800px-Decorator_UML_class_diagram.png
+  used on input line 212.
+(pdftex.def)             Requested size: 390.0pt x 308.59216pt.
+ [17 <../assets/images/800px-Decorator_UML_class_diagram.png>]
+<../assets/images/2560px-Proxy_pattern_diagram.png, id=310, 2569.6pt x 1434.358
+75pt>
+File: ../assets/images/2560px-Proxy_pattern_diagram.png Graphic file (type png)
+
+<use ../assets/images/2560px-Proxy_pattern_diagram.png>
+Package pdftex.def Info: ../assets/images/2560px-Proxy_pattern_diagram.png  use
+d on input line 219.
+(pdftex.def)             Requested size: 390.0pt x 217.68336pt.
+ [18 <../assets/images/2560px-Proxy_pattern_diagram.png>] [19] [20] [21]
+Overfull \hbox (25.41779pt too wide) in paragraph at lines 375--375
 []\OT1/cmr/bx/n/17.28 IMPLEMENTATION, IN-TE-GRA-TION AND
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 230.
-[15]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 230.
+[22]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 409.
+ [23]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 409.
  (DD.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 230.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 230.
-
-
-Package rerunfilecheck Warning: File `DD.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `DD.out':
-(rerunfilecheck)             Before: 6FB31149A70900AFCADA15A9AB4C8941;2250
-(rerunfilecheck)             After:  2258CB54F6B5C01649AA1B4DD54F62B6;1809.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 230.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 409.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 409.
+Package rerunfilecheck Info: File `DD.out' has not changed.
+(rerunfilecheck)             Checksum: EF272E4E26E6EAB875B26A700580A543;1965.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 409.
  ) 
 Here is how much of TeX's memory you used:
- 6422 strings out of 492452
- 94406 string characters out of 3119596
- 183920 words of memory out of 3000000
- 10658 multiletter control sequences out of 15000+200000
+ 6474 strings out of 492452
+ 95856 string characters out of 3119596
+ 182920 words of memory out of 3000000
+ 10678 multiletter control sequences out of 15000+200000
  13186 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 31i,6n,28p,723b,386s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,6n,28p,807b,440s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Utente/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmbx12.pfb><C:/Users/Utente/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmr12.pfb><C:/Users/Utente/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Utente/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on DD.pdf (15 pages, 503822 bytes).
+Output written on DD.pdf (23 pages, 641763 bytes).
 PDF statistics:
- 324 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 259 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 390 PDF objects out of 1000 (max. 8388607)
+ 80 named destinations out of 1000 (max. 500000)
+ 290 words of extra memory for PDF output out of 10000 (max. 10000000)
 

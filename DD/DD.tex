@@ -182,19 +182,198 @@ The final tier corresponds to the Database Server, where the DBMS is running. We
 \end{itemize}
 \subsection{Runtime view}
 \subsection{Component interfaces}
+\subsubsection{External Interfaces}
+SafeStreets uses some Application Programming Interfaces to facilitate the implementation. These components are infact largely used and compatible with most of the devices currently on the market:
+\begin{itemize}
+\item \texttt{SMS API}: it enables the the possibility to register to the system with a telephone number, thanks to a process in which a temporary code is sent through an SMS Service
+\item \texttt{Maps API}: fundamental for the violation reporting functionality, as it shows the user its location and the vehicles location in a well visible map
+\item \texttt{Camera API}: every users' smartphone needs direct access to its camera to take pictures of the violation-committing vehicles' license plate
+\item \texttt{ANPR API}: Automatic Number Plate Recognition is a technology that uses optical character recognition on images to read vehicle registration plates to create vehicle location data. Its presence in the system is fundamental so the software recognizes the vehicles plate from the photo and saves the data in the database 
+\item \texttt{PRA API}: the Pubblico Registro Automobilistico is the big database where any user can infer sensible data regarding a vehicles' owner. In our case, the PRA is accessed by authorities in the process we called Violation Solving where they can take measures towards the vehicles owner
+\item \texttt{Machine Learning API}: SafeStreets will use machine learning generate suggestions on interventions to take in streets full of violations. This happens when SafeStreets crosses its own data with the one provided by the municipality when an authority decides to request a suggestion
+\item \texttt{Database API}: this API is actually used to support multiple database servers easily, to provide a structured interface for the dynamic construction of queries, to enforce security checks and to facilitate the interaction with the database
+\end{itemize}
+\newpage
 \subsection{Selected architectural styles and patterns}
 \subsubsection{Design Patterns}
 Here are the design patterns we used to make our architecture more flexible:
 \begin{itemize}
-\item \textbf{Model View Controller}
+\item \textbf{Model View Controller}\\
 Nowadays, most Mobile and Web Applications rely on this pattern. These type of applications infact retrieve data from the Database and updates the Users' Interface consequently and according to the provided input, while the Controller checks the validity of the requested operations. Therefore the main scope of this pattern is to separate the Data (Model), the Users' Interface (View) and the user's input validator (Controller)
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\linewidth]{../assets/images/model-view-controller-light-blue.png}
+	\end{figure}
+\newpage
+\item \textbf{Decorator Pattern}\\
+The Decorator is a design pattern that allows behavior to be added to an individual object, dynamically, without affecting the behavior of other objects from the same class. It can be used to extend (decorate) the functionality of a certain object statically, or in some cases at run-time, independently of other instances of the same class, provided some groundwork is done at design time. This is achieved by designing a new Decorator class that wraps the original class. This pattern is designed so that multiple decorators can be stacked on top of each other, each time adding a new functionality to the overridden method. In our case, it can be used to add new information on a already reported violation which lacks in important data without affecting the other violations already compiled
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\linewidth]{../assets/images/800px-Decorator_UML_class_diagram.png}
+	\end{figure}
+\newpage
+\item \textbf{Proxy Pattern}\\
+It provides a surrogate for another object to control access to it. In our system architecture it can be useful to interface the Application Server with the Database Server. For example, whenever a user, an authority or a third party (municipality) requests some data that is unchanged, the proxy can answer the query without involving access to the database, providing a better response time. In our case, it can be useful when a user requests his reports history or when an authority requests a suggestion
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\linewidth]{../assets/images/2560px-Proxy_pattern_diagram.png}
+	\end{figure}
 \end{itemize}
+\subsubsection{RAPS Architecture}
+We want our system to rely on a RAPS (Reliable Array of Partitioned Service) architecture, in order to prevent unavailability of some functionalities in case of breakdowns. This architecture consists in a partitioned and redundant structure: servers are cloned to achieve this objective. More precisly, multiple services are divided on different machines and each machine can access in turn to a copy of the stored data. Such architecture guarantees better availability and scalability and provides a high rate of maintainability: in case of breakdowns, it is sufficient to work on the damaged machine, without interfering with the other machines' tasks, while the specific service can still be perfomed. In addition, if the system is willing to expand some services, it is sufficient invest
+on the specific partition associated to that service.
 \subsection{Other design decisions}
+
 \section{USER INTERFACE DESIGN}
 As already mentioned in the \texttt{Requirements Analysis and Specification Document} (RASD), our idea is to provide users with a Mobile App (for smartphones and tablets) and authorities with a Web App (for computers).\\ The applications will be different both in functionalities and in style, and we decided to separate the two and therefore make them exclusive, because of the different use and different authentication method they have.\\ For a closer look at what the two interfaces look like, we invite you to check our RASD where several mock-ups have been presented
 \section{REQUIREMENTS TRACEABILITY}
+\subsubsection*{[R1]: The system must allow users to provide their credentials and personal data}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item SubscriptionManager
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R2]: The system must let the user verify his account with his e-mail or by SMS}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item SubscriptionManager
+\item SMS Service
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R3]: The system must verify there are no other registered users with the same e-mail or telephone number}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item SubscriptionManager
+\item DBMS
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R4]: In order to register successfully, the system must oblige the user to accept the data privacy policies and conditions}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item SubscriptionManager
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R5]: The system must give the user the possibility to take pictures}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item ViolationReport
+\item Camera Service
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R6]: The system must retrieve the users' position correctly}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item ViolationReport
+\item Maps Service
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R7]: The system must recognize the license plate}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item ViolationReport
+\item ANPR Service
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R8]: The system must give the user the chance to select a violation type from the dropdown menu}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item ViolationReport
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R9]: The system musn't give the user the possibility to load photos from their device}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item ViolationReport
+\item Camera Service
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R10]: If the users' wants to, the system must let them write an optional description.}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item ViolationReport
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R11]: The system must show to the user all the violations he reported in the past}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item ReportsHistory
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R12]: The system must show to the user his account information and personal data when requested}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item ProfileManager
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R13]: The system must allow authorities to provide their credentials and personal authority identification}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item AuthenticationManager
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R14]: The system must verify there are no other registered authorities with the same identification}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item AuthenticationManager
+\item DBMS
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R15]: In order to register successfully, the system must oblige the authority to accept the data privacy policies and conditions}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item AuthenticationManager
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R16]: The system must allow authorities to access the Violations Map and see which type of violations are being committed where}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item ViolationSolving
+\item DataAccess
+\item DBMS
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R17]: The system must allow authorities to switch to the Suggestions Map and see which suggestions have been posted for each area}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item SuggestionGenerating
+\item DataAccess
+\item DBMS
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R18]: The system must allow authorities to discard pictures which don't represent a vehicle}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item DataAccess
+\end{itemize}
+\end{itemize}
+\subsubsection*{[R19]: The system must allow authorities to discard pictures of vehicles which aren't committing any violation}
+\begin{itemize}
+\item Components
+\begin{itemize}
+\item DataAccess
+\item ViolationSolving
+\end{itemize}
+\end{itemize}
 \section{IMPLEMENTATION, INTEGRATION AND TEST PLAN}
-\section{EFFORT SPENT}
+\section{EFFORT SPENT}	\
 \begin{itemize}
 		\item Giancarlo Danese
 		\begin{center}
