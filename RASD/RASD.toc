@@ -30,6 +30,7 @@
 \contentsline {subsubsection}{\numberline {3.4.7}Reports History}{22}{subsubsection.3.4.7}% 
 \contentsline {subsubsection}{\numberline {3.4.8}Violation Solving}{22}{subsubsection.3.4.8}% 
 \contentsline {subsubsection}{\numberline {3.4.9}Suggestion Observing}{23}{subsubsection.3.4.9}% 
+\contentsline {subsubsection}{\numberline {3.4.10}Suggestion Requesting}{23}{subsubsection.3.4.10}% 
 \contentsline {subsection}{\numberline {3.5}Sequence Diagrams}{24}{subsection.3.5}% 
 \contentsline {subsubsection}{\numberline {3.5.1}User Registration}{24}{subsubsection.3.5.1}% 
 \contentsline {subsubsection}{\numberline {3.5.2}User Login}{25}{subsubsection.3.5.2}% 

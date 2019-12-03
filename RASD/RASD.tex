@@ -41,7 +41,7 @@ Users will have the possibility to send pictures of the violation, together with
 \item {\textbf[}\textbf{G3}{\textbf]}: Allow users to check their reports history
 \item {\textbf[}\textbf{G4}{\textbf]}: Allow users to check/modify their account info
 \item {\textbf[}\textbf{G5}{\textbf]}: Allow authorities to register to the system with their personal data
-\item {\textbf[}\textbf{G6}{\textbf]}: Allow authorities to access and observe the Violations/Suggestions map
+\item {\textbf[}\textbf{G6}{\textbf]}: Allow authorities to observe/request a Suggestion
 \item {\textbf[}\textbf{G7}{\textbf]}: Allow authorities to discard non-valid photos
 \end{itemize}
 \subsection{Scope}
@@ -69,6 +69,7 @@ Authorities will have the chance to observe the information retrieved and mined 
 \subsection{Revision history}
 \begin{itemize}
 \item \texttt{27/11/2019} Added Web Service/Server to all the Sequence Diagrams, added the Suggestion Request sequence diagram and corrected some discrepancies/clarifications regarding the Suggestions generating processes
+\item \texttt{03/12/2019} Added Suggestion Requesting Use Case, added Third Party actor and corrected more discrepancies/clarifications
 \end{itemize}
 \newpage
 \subsection{Reference Documents} 
@@ -130,6 +131,7 @@ According to the goals defined in the first section, we can list the most import
 \begin{itemize}
 \item {\texttt{Registered User}}: A person who registered to SafeStreets, sharing his personal data. He can login to the system by providing credentials and exploit all the services.
 \item {\texttt{Authorities}}: A Law Enforcement agent who has direct access to the users' reports on their web app and can issue warnings, fines and measures.
+\item {\texttt{Third Party}}: Municipality can allow users to retrieve information about accidents on their territory so SafeStreets can cross this infromation with its own data to identify potentially unsafe areas and suggest possible interventions
 \end{itemize}
 \subsection{Assumptions, dependencies and constraints}
  \begin{itemize}
@@ -276,13 +278,13 @@ Ciro is in his office watching the Unsafe Areas map of his city. In particular, 
 \item {[R14]}: The system must verify there are no other registered authorities with the same identification
 \item {[R15]}: In order to register successfully, the system must oblige the authority to accept the data privacy policies and conditions
 \end{itemize}
-\subsubsection*{{[}{G6}{]}: Allow authorities to access and observe the Violations/Suggestions map}
+\subsubsection*{{[}{G6}{]}: Allow authorities to observe/request a Suggestion}
 \begin{itemize}
 \item {[D10]}: Authorities must have access to the internet
 \item {[D12]}: Authorities must always check the validity of the photos taken
 \\\\
-\item {[R16]}: The system must allow authorities to access the Violations Map and see which type of violations are being committed where
-\item {[R17]}: The system must allow authorities to switch to the Suggestions Map and see which suggestions have been posted for each area
+\item {[R16]}: The system must allow authorities to request a suggestion from SafeStreets
+\item {[R17]}: The system must allow authorities access the Suggestions Map and see which suggestions have been posted for each area
 \end{itemize}
 \subsubsection*{{[}{G7}{]}: Allow authorities to discard non-valid photos}
 \begin{itemize}
@@ -542,6 +544,34 @@ Ciro is in his office watching the Unsafe Areas map of his city. In particular, 
 				1. The authority is not logged in\\
 				&2. The authority isn't on the suggestions map\\
 				&3. There aren't any suggestions in that area\\
+				\hline
+			\end{tabular}
+		\end{center}
+\subsubsection{Suggestion Requesting}
+\begin{center}
+			\begin{tabular}{| c | l |}
+				\hline
+				\textbf{NAME} & Suggestion Requesting\\
+				\hline
+				\textbf{ACTOR} & Authority \\
+				\hline
+				\textbf{ENTRY CONDITIONS} & The authority is logged in and is on the suggestions map\\
+				\hline
+				\textbf{EVENTS FLOW}  &
+				1. The authority clicks on the Request Suggestion button\\
+				&2. The authority waits for the request to be forwarded\\
+ 				& to municipality\\ 
+				&3. SafeStreets crosses its own data with the one\\ 
+				& municipality provided them\\
+				&4. SafeStreets' algorithms generate a suggestion and\\
+				& sends it back to the authority \\
+				\hline
+				\textbf{EXIT CONDITIONS} & The authority has successfully requested a suggestion \\ 
+				\hline
+				\textbf{EXCEPTIONS} &
+				1. The authority is not logged in\\
+				&2. The authority isn't on the suggestions map\\
+				&3. There aren't any suggestions to generate for that area\\
 				\hline
 			\end{tabular}
 		\end{center}

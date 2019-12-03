@@ -30,28 +30,29 @@
 \BOOKMARK [3][-]{subsubsection.3.4.7}{Reports History}{subsection.3.4}% 30
 \BOOKMARK [3][-]{subsubsection.3.4.8}{Violation Solving}{subsection.3.4}% 31
 \BOOKMARK [3][-]{subsubsection.3.4.9}{Suggestion Observing}{subsection.3.4}% 32
-\BOOKMARK [2][-]{subsection.3.5}{Sequence Diagrams}{section.3}% 33
-\BOOKMARK [3][-]{subsubsection.3.5.1}{User Registration}{subsection.3.5}% 34
-\BOOKMARK [3][-]{subsubsection.3.5.2}{User Login}{subsection.3.5}% 35
-\BOOKMARK [3][-]{subsubsection.3.5.3}{Authority Login}{subsection.3.5}% 36
-\BOOKMARK [3][-]{subsubsection.3.5.4}{Violation Reporting}{subsection.3.5}% 37
-\BOOKMARK [3][-]{subsubsection.3.5.5}{Violation Solving}{subsection.3.5}% 38
-\BOOKMARK [3][-]{subsubsection.3.5.6}{Suggestion Request}{subsection.3.5}% 39
-\BOOKMARK [2][-]{subsection.3.6}{Performance Requirements}{section.3}% 40
-\BOOKMARK [2][-]{subsection.3.7}{Design Constraints}{section.3}% 41
-\BOOKMARK [3][-]{subsubsection.3.7.1}{Standards compliance}{subsection.3.7}% 42
-\BOOKMARK [3][-]{subsubsection.3.7.2}{Hardware limitations}{subsection.3.7}% 43
-\BOOKMARK [2][-]{subsection.3.8}{Software System Attributes}{section.3}% 44
-\BOOKMARK [3][-]{subsubsection.3.8.1}{Reliability}{subsection.3.8}% 45
-\BOOKMARK [3][-]{subsubsection.3.8.2}{Availability}{subsection.3.8}% 46
-\BOOKMARK [3][-]{subsubsection.3.8.3}{Security}{subsection.3.8}% 47
-\BOOKMARK [3][-]{subsubsection.3.8.4}{Maintainability}{subsection.3.8}% 48
-\BOOKMARK [3][-]{subsubsection.3.8.5}{Portability}{subsection.3.8}% 49
-\BOOKMARK [1][-]{section.4}{FORMAL ANALYSIS USING ALLOY}{}% 50
-\BOOKMARK [2][-]{subsection.4.1}{Purpose of the Model}{section.4}% 51
-\BOOKMARK [2][-]{subsection.4.2}{Alloy Model}{section.4}% 52
-\BOOKMARK [2][-]{subsection.4.3}{Generated World}{section.4}% 53
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Description}{subsection.4.3}% 54
-\BOOKMARK [1][-]{section.5}{EFFORT SPENT}{}% 55
-\BOOKMARK [1][-]{section.6}{REFERENCES}{}% 56
-\BOOKMARK [2][-]{subsection.6.1}{Tools}{section.6}% 57
+\BOOKMARK [3][-]{subsubsection.3.4.10}{Suggestion Requesting}{subsection.3.4}% 33
+\BOOKMARK [2][-]{subsection.3.5}{Sequence Diagrams}{section.3}% 34
+\BOOKMARK [3][-]{subsubsection.3.5.1}{User Registration}{subsection.3.5}% 35
+\BOOKMARK [3][-]{subsubsection.3.5.2}{User Login}{subsection.3.5}% 36
+\BOOKMARK [3][-]{subsubsection.3.5.3}{Authority Login}{subsection.3.5}% 37
+\BOOKMARK [3][-]{subsubsection.3.5.4}{Violation Reporting}{subsection.3.5}% 38
+\BOOKMARK [3][-]{subsubsection.3.5.5}{Violation Solving}{subsection.3.5}% 39
+\BOOKMARK [3][-]{subsubsection.3.5.6}{Suggestion Request}{subsection.3.5}% 40
+\BOOKMARK [2][-]{subsection.3.6}{Performance Requirements}{section.3}% 41
+\BOOKMARK [2][-]{subsection.3.7}{Design Constraints}{section.3}% 42
+\BOOKMARK [3][-]{subsubsection.3.7.1}{Standards compliance}{subsection.3.7}% 43
+\BOOKMARK [3][-]{subsubsection.3.7.2}{Hardware limitations}{subsection.3.7}% 44
+\BOOKMARK [2][-]{subsection.3.8}{Software System Attributes}{section.3}% 45
+\BOOKMARK [3][-]{subsubsection.3.8.1}{Reliability}{subsection.3.8}% 46
+\BOOKMARK [3][-]{subsubsection.3.8.2}{Availability}{subsection.3.8}% 47
+\BOOKMARK [3][-]{subsubsection.3.8.3}{Security}{subsection.3.8}% 48
+\BOOKMARK [3][-]{subsubsection.3.8.4}{Maintainability}{subsection.3.8}% 49
+\BOOKMARK [3][-]{subsubsection.3.8.5}{Portability}{subsection.3.8}% 50
+\BOOKMARK [1][-]{section.4}{FORMAL ANALYSIS USING ALLOY}{}% 51
+\BOOKMARK [2][-]{subsection.4.1}{Purpose of the Model}{section.4}% 52
+\BOOKMARK [2][-]{subsection.4.2}{Alloy Model}{section.4}% 53
+\BOOKMARK [2][-]{subsection.4.3}{Generated World}{section.4}% 54
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Description}{subsection.4.3}% 55
+\BOOKMARK [1][-]{section.5}{EFFORT SPENT}{}% 56
+\BOOKMARK [1][-]{section.6}{REFERENCES}{}% 57
+\BOOKMARK [2][-]{subsection.6.1}{Tools}{section.6}% 58
