@@ -339,16 +339,16 @@ As already mentioned in the \texttt{Requirements Analysis and Specification Docu
 \item AuthenticationManager
 \end{itemize}
 \end{itemize}
-\subsubsection*{[R16]: The system must allow authorities to access the Violations Map and see which type of violations are being committed where}
+\subsubsection*{[R16]: The system must allow authorities to request a suggestion from SafeStreets}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item ViolationSolving
-\item DataAccess
+\item Machine Learning Service
+\item SuggestionGenerating
 \item DBMS
 \end{itemize}
 \end{itemize}
-\subsubsection*{[R17]: The system must allow authorities to switch to the Suggestions Map and see which suggestions have been posted for each area}
+\subsubsection*{[R17]: The system must allow authorities access to the Suggestions Map and see which suggestions have been posted for each area}
 \begin{itemize}
 \item Components
 \begin{itemize}
@@ -362,6 +362,7 @@ As already mentioned in the \texttt{Requirements Analysis and Specification Docu
 \item Components
 \begin{itemize}
 \item DataAccess
+\item PRA Service
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R19]: The system must allow authorities to discard pictures of vehicles which aren't committing any violation}
