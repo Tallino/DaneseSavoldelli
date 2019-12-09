@@ -6,7 +6,16 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{pdfpages}
 \usepackage[hidelinks]{hyperref}
+
+\begin{document}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.0\linewidth]{../assets/images/logo_poli.pdf}
+	\end{figure}
+
 \author{Giancarlo Danese - 945265\\
 	Davide Savoldelli - 928676}
 \date{A.Y. 2019/2020 - Prof. Di Nitto Elisabetta}
@@ -17,12 +26,7 @@
 	\large Design Document
 }
 
-\begin{document}
 
-	\begin{figure}
-		\centering
-		\includegraphics[width=1.0\linewidth]{../assets/images/logo_poli.jpg}
-	\end{figure}
 
 	\maketitle
 	\newpage
@@ -94,55 +98,106 @@ Here we have the Database Server and the Database itself, where all the data abo
 The following diagrams represents the systems' components and its interfaces throughout which they interact in order to execute their functionalities. We'll divide this view into two sides, the Client side and the Server side:
 \begin{itemize}
 \item The Client side is composed of three different components, the \texttt{Authority Web Application}, intended for authorities only, the \texttt{Third Party Web Application}, for municipality, and the \texttt{Mobile Application}, for users. The first two refers to the \texttt{AuthoritiesWebServices} service for authorities and to the \texttt{Third Party Web Services} for the municipality, the last to the \texttt{UserMobileServices} service for users
-\item The Server side is consequently also composed of three different components, the \texttt{Authorities Web Services} which will enable authorities to check the map, solve violations, etc., the \texttt{User Mobile Services} which gives users the chance to report street/parking violations with pictures, check/modify their personal data and review their report history and the \texttt{Third Party Services}, which is primarily intended for the municipality and enables them to receive and share data-mined information about violations to SafeStreets in order to generate suggested interventions etc.
+\item The Server side is consequently also composed of three different components, the \texttt{Authorities Web Services} which will enable authorities to check the map, solve violations, etc., the \texttt{User Mobile Services} which gives users the chance to report street/parking violations with pictures, check/modify their personal data and review their report history.
 \end{itemize}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.9\linewidth]{../assets/images/COMPONENT VIEW.png}
+		\includegraphics[width=1.2\linewidth]{../assets/images/component_no3rdparty.pdf}
 	\end{figure}
 
-
-\subsubsection{User Mobile Services Projection}
-The User Mobile Services Projection is subdivided into 4 modules: the \texttt{Subscription Manager Module}, \texttt{Violation Reporting Module}, the \texttt{Reports History Module} and the \texttt{Profile Manager Module}. These components provide to the User Mobile Application the following interfaces: \texttt{SubscriptionManager}, \texttt{ViolationReport}, \texttt{ReportsHistory} and \texttt{ProfileManager}. These components also need to communicate with a \texttt{SMS Service}, a \texttt{Maps Service}, the \texttt{Camera Service}, the \texttt{ANPR Service} and finally a \texttt{DBMS} which must guarantee full availability and functionality to the Application for a better user experience
+\newpage
+\subsubsection{User Mobile Application Projection}
+The User Mobile Application Projection is subdivided into 4 modules: the \texttt{Authentication Module}, the \texttt{Profile Module}, the \texttt{Violations Report Module} and the \texttt{Main Thread Module}. These components need to communicate with the \texttt{User Service API} which exposes the application interfaces which will be described in the User Remote Services Projection. 
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=1.2\linewidth]{../assets/images/USER PROJECTION.png}
+		\includegraphics[width=1.2\linewidth]{../assets/images/user_mobile_projection.pdf}
 	\end{figure}
-As you can see, every single module have access to the \texttt{DBMS} and the \texttt{Subscription Manager Module} interacts with a \texttt{SMS Service}, where a SMS is sent with a verification code to subscribe to the system. The \texttt{Violation Reporting Module}, the most important in the whole User Mobile Services, interfaces with a \texttt{Maps Service} for the localization of the vehicle, a \texttt{Camera Service} for the acquisition of the vehicles photo and a \texttt{ANPR Service} (Automatic Number Plate Recognition) which recognizes the license plate from the photo and saves it in the Violation Report 
+As you can see, every single module but the Main Thread have access to the \texttt{User Application Services}. The \texttt{Violations Report Module}, the most important in the whole User Mobile Services, interfaces with a \texttt{Camera API}, enabled by the Oprative System (Android or iOS) and the external \texttt{Maps API}, provided by the Maps Provider.
 \subsubsection*{Module Functionalities}
 \begin{itemize}
-\item \textbf{Subscription Manager Module}: this module manages the registration and login processes of the user. It will allow them to insert their personal data and register to the system, and, subsequently, login with the same credentials. 
-\item \textbf{Violation Reporting Module}: this module is the most important as it enables the user to report street/parking violations by taking pictures of the vehicle involved and uploading them to the system. 
-\item \textbf{Reports History Module}: this module manages the users' report history, and, when requested, queries the data from the database and shows it to the user
-\item \textbf{Profile Manager Module}: this module provides all the necessary functions concerning the update and deletion of any existing profile information\\\\
+\item \textbf{Authentication Module}: this module manages the registration and login processes of the user. It will allow them to insert their personal data and register to the system, and, subsequently, login with the same credentials. Eventually it provides the interface to manage and delete user profile.
+\item \textbf{Violations Report Module}: this module is the most important as it enables the user to report street/parking violations by taking pictures of the vehicle involved and uploading them to the system. 
+\item \textbf{Profile Module}: this module allows the mobile application to retrieve user's personal information, as well as the (private) history of submitted reports.
+\item \textbf{Main Thread Module}: this module enables the default running of the Application. It is not directly connected to the remote API due to security concerns.\\\\
 \end{itemize}
-
-\subsubsection{Authority Web Services Projection}
-The Authority Web Services Projection is subdivided into 4 modules: the \texttt{Data Access Module}, the \texttt{Authentication Manager Module}, the \texttt{Violation Solving Module} and the \texttt{Suggestion Generating Module}. These components provide to the Authority Web Application the following interfaces: \texttt{Data Access}, \texttt{Authentication Manager}, \texttt{Violation Solving} and \texttt{Suggestion Generating} . These components also need to communicate with a \texttt{PRA Service}, \texttt{Machine Learning Service} and finally a \texttt{DBMS} for the same reasons mentioned above.
-\begin{figure}[H]
-		\centering
-		\includegraphics[width=1.2\linewidth]{../assets/images/AUTH PROJECTION.png}
-	\end{figure}
-We can see here how authorities refer to the PRA (Pubblico Registro Automobilistico) to gather data from the license plates through the \texttt{PRA Service} while the \texttt{Machine Learning Service} is needed in order to generate suggestions for interventions to take in streets particularly full of violations.
-\subsubsection*{Module Functionalities}
+\subsubsection*{External Interface}
 \begin{itemize}
-\item \textbf{Data Access Module}: this module deals with the access to violations reported by users, while no private data is accessed 
-\item \textbf{Authentication Manager Module}: this module manages the registration and login of the authority. It will allow them to insert their personal data and to receive their AUC and DBP in order to successfully register to the system.
-\item \textbf{Violation Solving Module}: this module lets the authority interact with the list of violations, checking their validity and solving them. 
-\item \textbf{Suggestion Generating Module}: this module manages the generation of suggestions on possible interventions to take in order to prevent violations from being committed in that precise area.
+\item \textbf{Camera API}: This is the API provided by default by the Operative System. It allows the Application to take pictures using the built-in camera.
+\item \textbf{Maps API}: this is the API which allows the user to connect to a map service and download the maps basing on the actual location of the device. Since it is not the main concern of this document, for semplicity this "abstract" API represents both the GPS API provided by the OS and the remote Maps service.
 \end{itemize}
 \newpage
-\subsubsection{Third Party Services Projection}
-The Third Party Services Projection is subdivided into 2 modules: the \texttt{Data Sharing Module} and the \texttt{Authentication Manager Module}. These components provide to the Third Party Web Application the following interfaces: \texttt{DataSharing} and \texttt{Authentication Manager}. These components won't communicate with any external API, due to the fact that third party's only task (municipality) is to share its data with SafeStreets
+\subsubsection{User Remote Services Projection}
+The User Services Projection is subdivided into 4 modules: the \texttt{Authentication Module}, the \texttt{Profile Module}, the \texttt{Violations Report Module} and the \texttt{OCR Module}. These components provide the User Mobile Application the following interfaces: \texttt{AuthenticationManager}, \texttt{ProfileManager} and \texttt{ViolationReportManager}. These components also need to communicate with a \texttt{DBMS} which must guarantee full availability and functionality to the Application for a correct user experience.
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=1.2\linewidth]{../assets/images/THIRD PARTY PROJECTION.png}
+		\includegraphics[width=1.2\linewidth]{../assets/images/user_projection.pdf}
 	\end{figure}
-As said above, in our case, the Third Party is intended as the municipality, which have the only task of accessing the software and sharing their data regarding the reports with SafeStreets so when an authority requests it, the software will generate the above mentioned suggestions on interventions.
+Every single module but the \texttt{OCR Module} have access to the \texttt{DBMS} and the \texttt{Authentication Module} interacts with a \texttt{SMS Service}, where a SMS is sent with a verification code to subscribe to the system. The \texttt{Violations Report Module}, the most important in the whole User Mobile Services, interfaces with a \texttt{OCRHandler} which tries to recognize the license plate from the photo and saves it in the Violation Report.
 \subsubsection*{Module Functionalities}
 \begin{itemize}
-\item \textbf{Data Sharing Module}: this module is in charge of the sharing violation-related mined data to SafeStreets in order to generate suggestions on street interventions to take
-\item \textbf{Authentication Manager Module}: this module manages the authentication procedure the municipality must execute to access the Web App
+\item \textbf{Authentication Module}: this module manages the registration and login processes of the user in the remote application. It accepts incoming personal data from the Mobile App and guarantees the correct login/registration process, retrieving data from the Database.
+\item \textbf{Violations Report Module}: this core module receives the violations made from the Mobile App, validates them and eventually add or update them to Database.
+\item \textbf{Profile Module}: this modules receives all the requests coming from the Mobile Application concerning the retreival of the  user's personal information. It asks the Database and forwards responses to the user. The information provided includes personal data of the user and his/her reports history.
+\item \textbf{OCR Module}: this module provides all the necessary functions concerning the automatic detection of the plate number based on image recognition algorithms.\\\\
+\end{itemize}
+\subsubsection*{External Interface}
+\begin{itemize}
+\item \textbf{SMS Service}: this module manages the SMS sending to the user mobile application in order to complete the registration process and/or reset password in case of loss.
+\end{itemize}
+\newpage
+\subsubsection{Authority Web Application Projection}
+The Authority Web Services Projection is subdivided into 4 modules: the \texttt{Authentication Module}, the \texttt{Profile Module}, the \texttt{Violation Retrieve Module} and the \texttt{Suggestion Module}. These components also need to communicate with a \texttt{Authority Service API} which exposes the application interfaces which will be described in the Authority Remote Services Projection.
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.1\linewidth]{../assets/images/Authority_webapp_projection.pdf}
+	\end{figure}
+\newpage
+\subsubsection*{Module Functionalities}
+\begin{itemize}
+\item \textbf{Authentication Module}: this module manages the registration and login of the authority. It will allow them to insert their personal data and to receive their AUC and DBP in order to successfully register to the system.
+\item \textbf{Profile Module}: this module deals with the access to the personal information of the Authority.
+\item \textbf{Violation Retrieve Module}: this module lets the authority interact with the list of violations, checking their validity and solving them. 
+\item \textbf{Suggestion Module}: this module manages the dispatching of suggestions to the Authority about possible interventions to take in order to prevent violations from being committed in that precise area.
+\end{itemize}
+\subsubsection*{External Interface}
+\begin{itemize}
+\item \textbf{Pubblico Registro Automobilistico API}: this module allows the Authority to retrieve all the available public information of a driver (Name, Surname, Car Model, Insurance data) basing on a valid registered plate number.
+\item \textbf{Maps API}: this module downloads the actual maps for the Web Application basing on the virtual position of the cursor.
+\end{itemize}
+\newpage
+\subsubsection{Authority Remote Services Projection}
+The Authority Web Services Projection is subdivided into 5 modules: the \texttt{Authentication Module}, the \texttt{Profile Module}, the \texttt{Violation Retrieve Module}, the \texttt{Suggestion Module} and the \texttt{Machine Learning Module}. These components provide to the Authority Web Application the following interfaces: \texttt{AuthenticationManager}, \texttt{ProfileManager}, \texttt{ViolationRetriveManager} and \texttt{SuggestionManager} . These components also need to communicate with a \texttt{DBMS} for the correct dispatching of data.
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.2\linewidth]{../assets/images/authority_projection.pdf}
+	\end{figure}
+We can see here how the \texttt{Suggestion Module} refers to the \texttt{Machine Learning Module} in order to generate suggestions for interventions to take in streets particularly full of violations.
+\subsubsection*{Module Functionalities}
+\begin{itemize}
+\item \textbf{Authentication Module}: this module manages the registration and login of the authority. It will validate Authority AUC and DBP in order to provide the Authority a secured login.
+\item \textbf{Profile Module}: this module accepts Authority's requests about personal information, gets them from the Database and forwards them to the Web App.
+\item \textbf{Violation Retrieve Module}: this dispatch the Violation Information to the Authority's Web App.
+\item \textbf{Suggestion Module}: this module manages the dispatching of suggestions to the Authority's Web App. It also retrieves Violations' data from the enterprise database and the Accidents' data provided by the municipality's external API. This data is finally sent through the \texttt{MachineLearningHandler} interface in order to provide its actual computation.
+\item \textbf{Machine Learning Module}: this module allows the generation of suggestions basing on the data (Violations and Accidents) exchanged with the suggestion module.
+\end{itemize}
+\subsubsection*{External Interface}
+\begin{itemize}
+\item \textbf{Municipality's Accidents Service}: this module allows the retrieval of the data about the accidents related to the area of interest in order to complete the Suggestions' computation.
+\end{itemize}
+\subsection{Component interfaces}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{../assets/images/component_interfaces1.pdf}
+	\end{figure}
+\subsubsection{External Interfaces}
+SafeStreets uses some Application Programming Interfaces to facilitate the implementation. These components are infact largely used and compatible with most of the devices currently on the market:
+\begin{itemize}
+\item \texttt{SMS API}: it enables the the possibility to register to the system with a telephone number, thanks to a process in which a temporary code is sent through an SMS Service
+\item \texttt{Maps API}: fundamental for the violation reporting functionality, as it shows the user its location and the vehicles location in a well visible map. It is also used by the Authority Web App to display the Violations and the Suggestions in the selected area.
+\item \texttt{Camera API}: every users' smartphone needs direct access to its camera to take pictures of the violation-committing vehicles' license plate.
+\item \texttt{PRA API}: the Pubblico Registro Automobilistico is the big database where any user can infer sensible data regarding a vehicles' owner. In our case, the PRA is accessed by authorities in the process we called Violation Solving where they can take measures towards the vehicles owner
+\item \texttt{Accidents API}: this API allows the Suggestions Module to retreive data about the accidents happened in a specific area. Combining this data with the violations reported by users, the Authority is provided accurate suggestions in order to prevent future violations.
+\item \texttt{Database API}: this API is actually used to support multiple database servers easily, to provide a structured interface for the dynamic construction of queries, to enforce security checks and to facilitate the interaction with the database
 \end{itemize}
 \newpage
 \subsection{Deployment view}
@@ -181,18 +236,6 @@ The final tier corresponds to the Database Server, where the DBMS is running. We
 	\end{figure}
 \end{itemize}
 \subsection{Runtime view}
-\subsection{Component interfaces}
-\subsubsection{External Interfaces}
-SafeStreets uses some Application Programming Interfaces to facilitate the implementation. These components are infact largely used and compatible with most of the devices currently on the market:
-\begin{itemize}
-\item \texttt{SMS API}: it enables the the possibility to register to the system with a telephone number, thanks to a process in which a temporary code is sent through an SMS Service
-\item \texttt{Maps API}: fundamental for the violation reporting functionality, as it shows the user its location and the vehicles location in a well visible map
-\item \texttt{Camera API}: every users' smartphone needs direct access to its camera to take pictures of the violation-committing vehicles' license plate
-\item \texttt{ANPR API}: Automatic Number Plate Recognition is a technology that uses optical character recognition on images to read vehicle registration plates to create vehicle location data. Its presence in the system is fundamental so the software recognizes the vehicles plate from the photo and saves the data in the database 
-\item \texttt{PRA API}: the Pubblico Registro Automobilistico is the big database where any user can infer sensible data regarding a vehicles' owner. In our case, the PRA is accessed by authorities in the process we called Violation Solving where they can take measures towards the vehicles owner
-\item \texttt{Machine Learning API}: SafeStreets will use machine learning generate suggestions on interventions to take in streets full of violations. This happens when SafeStreets crosses its own data with the one provided by the municipality when an authority decides to request a suggestion
-\item \texttt{Database API}: this API is actually used to support multiple database servers easily, to provide a structured interface for the dynamic construction of queries, to enforce security checks and to facilitate the interaction with the database
-\end{itemize}
 \newpage
 \subsection{Selected architectural styles and patterns}
 \subsubsection{Design Patterns}
@@ -374,6 +417,114 @@ As already mentioned in the \texttt{Requirements Analysis and Specification Docu
 \end{itemize}
 \end{itemize}
 \section{IMPLEMENTATION, INTEGRATION AND TEST PLAN}
+\subsection{Implementation Plan}
+We will implement our system one component/module at a time, according to a bottom-up approach that will facilitate a high deployment coverage in early phases. The order in which our implementation will be carried out, takes in account different factors such as the complexity of the modules and how they are interconnected with one another and we must take in consideration the possibility of discovering flaws and bugs in our designed system that will require to be fixed as soon as possible in order to prevent further additional costs and difficulties in debugging.\\\\
+We can therefore implement our components in the order as follows:
+\begin{itemize}
+\item \textbf{Model}\\\\
+This is the first component we are going to implement since all the parts of our Application Server will be using its elements and it allows services to communicate with the DBMS. It is therefore a crucial component for the entire system
+\item \textbf{User Mobile Services}\\\\
+This macro-component, along with the \texttt{Authority Web Services} component, is the most complex and important of the entire system, since it allows users to accomplish most of the softwares' functionalities and it provides all the services necessary for the user to use the software correctly. We mentioned above several modules but the most important is definitely the \texttt{Violation Report Module} since it gives the user the functionalities to actually use the application for what it was developed for and is directly linked with what the authorities will do with these reports
+\item \textbf{Authority Web Services}\\\\
+This is our second macro-component, as important as the \texttt{User Mobile Services} as it works as a mirror to its functionalities, referring in fact to the authority side: here authorities exploit different functionalities but the most important is probably the \texttt{Suggestion Requesting Module} as it enables authorities to request suggestions on interventions to take on the streets, and it involves nearly all the parts of our system: the municipality, the web/application server and the DBMS.
+\item \textbf{Client and Router}\\\\
+Finally, these components will be used to redirect requests and offer the user a way to communicate with the modules and services which will be carrying out the main features of the system
+\end{itemize}
+\subsection{Integration and Testing}
+In the following sections we are going to illustrate how external components will be integrated with the ones implemented for the system and what testing strategy will be adopted.\\
+
+This is the order in which we will integrate such components:
+\begin{itemize}
+\item \texttt{Integration with the DBMS}
+\item \texttt{Integration with external services}
+\item \texttt{Integration with the application server}
+\item \texttt{Integration Client - Server}
+\end{itemize}
+Every component will be integrated with various modules and/or external/internal services
+\begin{itemize}
+\item \textbf{Integration of the components with the DBMS}\\
+Required integrations:
+\begin{itemize}
+\item \texttt{Subscription Manager Module, DBMS}
+\item \texttt{Violation Reporting Module, DBMS}
+\item \texttt{Reports History Module, DBMS}
+\item \texttt{Profile Manager Module, DBMS}
+\item \texttt{Data Access Module, DBMS}
+\item \texttt{Authentication Manager Module, DBMS}
+\item \texttt{Violation Solving Module, DBMS}
+\item \texttt{Suggestion Requesting Module, DBMS}
+\item \texttt{Data Sharing Module, DBMS}
+\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Integration of the components with external services}\\
+Required integrations:
+\begin{itemize}
+\item \texttt{Subscription Manager Module, SMS Service}
+\item \texttt{Violation Reporting Module, Maps Service}
+\item \texttt{Violation Reporting Module, Camera Service}
+\item \texttt{Violation Reporting Module, ANPR Service}
+\item \texttt{Violation Solving Module, PRA Service}
+\item \texttt{Violation Solving Module, Maps Service}
+\item \texttt{Suggestion Requesting Module, Machine Learning Service}
+\end{itemize}
+\end{itemize}
+\subsection{Components Integration}
+In this section of the document,we will use some diagrams to describe how the components and subsystems of SafeStreets system will be linked to one another
+\subsubsection{User Side Integration}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/sub_manager.png}
+		\caption{Users' Sub Manager links with SMS Service and DBMS}
+\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/viol_rep.png}
+		\caption{The most important module: it links up with 3 external services and the DBMS}
+\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/rep_hist.png}
+		\caption{This module links up only with the DBMS as it needs information from the database to show the user his reports history}
+\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/prof_manager.png}
+		\caption{As said above, the same happens for this module and the DBMS}
+\end{figure}
+\subsubsection{Authority Side Integration}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/data_access.png}
+		\caption{In the authority projection, the same happens for the data access module: it interacts only with the DBMS in order to retrieve information from the users}
+\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/auth_manager.png}
+		\caption{This module helps authorities authenticate to the system and accesses the DBMS only to check the validity of the inserted credentials}
+\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/viol_solving.png}
+		\caption{One of the most important modules of this projection: it links with the Violations map and uses the PRA service to retrieve personal information of the owner of the violation-committing vehicles}
+\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/sugg_req.png}
+		\caption{This module links with external Machine Learning services in order to mine information from the streets (retrieved from municipality) and generate suggestions on interventions to take}
+\end{figure}
+\subsubsection{Third Party Side Integration}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/data_share.png}
+		\caption{As said above, the municipality have limited functionalities: one of these, the most important, is the possibility to share data on violations when explicitily requested from authorities/SafeStreets}
+\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/auth_manager.png}
+		\caption{Municipality have also the chance to authenticate to the system through the Web Server}
+\end{figure}
 \section{EFFORT SPENT}	\
 \begin{itemize}
 		\item Giancarlo Danese
