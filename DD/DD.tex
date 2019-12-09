@@ -236,6 +236,28 @@ The final tier corresponds to the Database Server, where the DBMS is running. We
 	\end{figure}
 \end{itemize}
 \subsection{Runtime view}
+\subsubsection{Violation Report}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{../assets/sequence_diagrams/exports/workflw_violation_report_complete.pdf}
+		\caption{Workflow of Violation Reporting.}
+	\end{figure}
+In this sequence diagram the process of violation reporting is shown. The process starts with the user's click on camera button, the requests are sent to a Web Server which forwards them to the ViolationManager interface of the Application Server. It calls first the OCRHandler to recognize the plate number and then sends it to the user. The user is now allowed to complete the Violation data (such as uploading pictures, giving a description and choosing the category of violation). After the Violation Data is validated by the Violation Module, in case of success, the item is first queried from the Database and inserted or updated into it. In case of failure an error message is show to the user.
+\newpage
+\subsubsection{Violation Retrieval}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\linewidth]{../assets/sequence_diagrams/exports/workflw_violation_retrieval_complete.pdf}
+		\caption{Workflow of Violation Retrieval.}
+	\end{figure}
+In this sequence diagram the process of Violation retrieval is shown. The authority selectes the displaying of the Violations in the Web Application, basing on the selected map location. The request is sent to the ViolationRetrieveManager interface of the Authority Module in the Application Server. The request is sent to the Database and finally forwarded to the Authority. When the Authority clicks on a Violation a new requenst is generated: the ViolationRetrieveManager ask the Database again to access the data of a specific violation. The data is sent back to the Authority passing through the Web Server.
+\subsubsection{Suggestion Retrieval}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.0\linewidth]{../assets/sequence_diagrams/exports/workflw_suggestions_complete.pdf}
+		\caption{Workflow of Suggestion computation and displaying.}
+	\end{figure}
+In this sequence diagram the process of Suggestion retrieval is shown. The Authority asks for the displaying of the suggestion related to a specific map location. The request is sent to the SuggestionManager interface, which first asks the external Accidents API provided by the municipality to retrieve the Accidents in the area. Then a new request for the violations to the DBMS API is sent and when the Suggestion Module has got the whole data, it calls the MachineLearningHandler to compute new Suggestions, basing on the actual data. The response is then sent back to the Authority passing through the Web Server.
 \newpage
 \subsection{Selected architectural styles and patterns}
 \subsubsection{Design Patterns}
@@ -475,54 +497,54 @@ In this section of the document,we will use some diagrams to describe how the co
 \subsubsection{User Side Integration}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\linewidth]{../assets/images/sub_manager.png}
+
 		\caption{Users' Sub Manager links with SMS Service and DBMS}
 \end{figure}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\linewidth]{../assets/images/viol_rep.png}
+
 		\caption{The most important module: it links up with 3 external services and the DBMS}
 \end{figure}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\linewidth]{../assets/images/rep_hist.png}
+
 		\caption{This module links up only with the DBMS as it needs information from the database to show the user his reports history}
 \end{figure}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\linewidth]{../assets/images/prof_manager.png}
+
 		\caption{As said above, the same happens for this module and the DBMS}
 \end{figure}
 \subsubsection{Authority Side Integration}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\linewidth]{../assets/images/data_access.png}
+
 		\caption{In the authority projection, the same happens for the data access module: it interacts only with the DBMS in order to retrieve information from the users}
 \end{figure}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\linewidth]{../assets/images/auth_manager.png}
+
 		\caption{This module helps authorities authenticate to the system and accesses the DBMS only to check the validity of the inserted credentials}
 \end{figure}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\linewidth]{../assets/images/viol_solving.png}
+
 		\caption{One of the most important modules of this projection: it links with the Violations map and uses the PRA service to retrieve personal information of the owner of the violation-committing vehicles}
 \end{figure}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\linewidth]{../assets/images/sugg_req.png}
+
 		\caption{This module links with external Machine Learning services in order to mine information from the streets (retrieved from municipality) and generate suggestions on interventions to take}
 \end{figure}
 \subsubsection{Third Party Side Integration}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\linewidth]{../assets/images/data_share.png}
+
 		\caption{As said above, the municipality have limited functionalities: one of these, the most important, is the possibility to share data on violations when explicitily requested from authorities/SafeStreets}
 \end{figure}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\linewidth]{../assets/images/auth_manager.png}
+
 		\caption{Municipality have also the chance to authenticate to the system through the Web Server}
 \end{figure}
 \section{EFFORT SPENT}	\
