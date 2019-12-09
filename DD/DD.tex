@@ -187,7 +187,7 @@ We can see here how the \texttt{Suggestion Module} refers to the \texttt{Machine
 \subsection{Component interfaces}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.8\linewidth]{../assets/images/component_interfaces1.pdf}
+		\includegraphics[width=0.7\linewidth]{../assets/images/component_interfaces1.pdf}
 	\end{figure}
 \subsubsection{External Interfaces}
 SafeStreets uses some Application Programming Interfaces to facilitate the implementation. These components are infact largely used and compatible with most of the devices currently on the market:
@@ -296,14 +296,14 @@ As already mentioned in the \texttt{Requirements Analysis and Specification Docu
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item SubscriptionManager
+\item AuthenticationManager
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R2]: The system must let the user verify his account with his e-mail or by SMS}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item SubscriptionManager
+\item AuthenticationManager
 \item SMS Service
 \end{itemize}
 \end{itemize}
@@ -311,7 +311,7 @@ As already mentioned in the \texttt{Requirements Analysis and Specification Docu
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item SubscriptionManager
+\item AuthenticationManager
 \item DBMS
 \end{itemize}
 \end{itemize}
@@ -319,67 +319,67 @@ As already mentioned in the \texttt{Requirements Analysis and Specification Docu
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item SubscriptionManager
+\item AuthenticationManager
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R5]: The system must give the user the possibility to take pictures}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item ViolationReport
-\item Camera Service
+\item Violations Report Module
+\item Camera API
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R6]: The system must retrieve the users' position correctly}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item ViolationReport
-\item Maps Service
+\item Main Thread Module
+\item Maps API
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R7]: The system must recognize the license plate}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item ViolationReport
-\item ANPR Service
+\item ViolationsReportManager
+\item OCR Module
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R8]: The system must give the user the chance to select a violation type from the dropdown menu}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item ViolationReport
+\item Violations Report Module
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R9]: The system musn't give the user the possibility to load photos from their device}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item ViolationReport
-\item Camera Service
+\item Violations Report Module
+\item Camera API
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R10]: If the users' wants to, the system must let them write an optional description.}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item ViolationReport
+\item Violations Report Module
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R11]: The system must show to the user all the violations he reported in the past}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item ReportsHistory
+\item Profile Module
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R12]: The system must show to the user his account information and personal data when requested}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item ProfileManager
+\item Authentication Module
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R13]: The system must allow authorities to provide their credentials and personal authority identification}
@@ -408,34 +408,34 @@ As already mentioned in the \texttt{Requirements Analysis and Specification Docu
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item Machine Learning Service
-\item SuggestionGenerating
-\item DBMS
+\item SuggestionManager
+\item Municipality's Accidents Service
+\item Machine Learning Module
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R17]: The system must allow authorities access to the Suggestions Map and see which suggestions have been posted for each area}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item SuggestionGenerating
-\item DataAccess
-\item DBMS
+\item Suggestion Module
+\item Violations Retrieve Module
+\item Maps API
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R18]: The system must allow authorities to discard pictures which don't represent a vehicle}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item DataAccess
-\item PRA Service
+\item Violations Retrieve Module
+\item Pubblico Registro Automobilistico API 
 \end{itemize}
 \end{itemize}
 \subsubsection*{[R19]: The system must allow authorities to discard pictures of vehicles which aren't committing any violation}
 \begin{itemize}
 \item Components
 \begin{itemize}
-\item DataAccess
-\item ViolationSolving
+\item Violations Retrieve Module
+\item Pubblico Registro Automobilistico API 
 \end{itemize}
 \end{itemize}
 \section{IMPLEMENTATION, INTEGRATION AND TEST PLAN}
@@ -445,12 +445,14 @@ We can therefore implement our components in the order as follows:
 \begin{itemize}
 \item \textbf{Model}\\\\
 This is the first component we are going to implement since all the parts of our Application Server will be using its elements and it allows services to communicate with the DBMS. It is therefore a crucial component for the entire system
-\item \textbf{User Mobile Services}\\\\
-This macro-component, along with the \texttt{Authority Web Services} component, is the most complex and important of the entire system, since it allows users to accomplish most of the softwares' functionalities and it provides all the services necessary for the user to use the software correctly. We mentioned above several modules but the most important is definitely the \texttt{Violation Report Module} since it gives the user the functionalities to actually use the application for what it was developed for and is directly linked with what the authorities will do with these reports
-\item \textbf{Authority Web Services}\\\\
-This is our second macro-component, as important as the \texttt{User Mobile Services} as it works as a mirror to its functionalities, referring in fact to the authority side: here authorities exploit different functionalities but the most important is probably the \texttt{Suggestion Requesting Module} as it enables authorities to request suggestions on interventions to take on the streets, and it involves nearly all the parts of our system: the municipality, the web/application server and the DBMS.
-\item \textbf{Client and Router}\\\\
-Finally, these components will be used to redirect requests and offer the user a way to communicate with the modules and services which will be carrying out the main features of the system
+\item \textbf{User Mobile Remote Services}\\\\
+This is our first macro-component and it is made of the actual remote services that will interact with the modules of the user application. We will implement these services first as they will work as the foundations of our user-side application. We can see how all modules interact with the DBMS, the \texttt{Authentication Module} with the \texttt{SMS Service} and the \texttt{Violations Report Module} with the \texttt{OCR Module} (for recognizing the license plates)
+\item \textbf{Authority Remote Services}\\\\
+This is our second macro-component, as important as the \texttt{User Mobile Remote Services} as it works as a mirror to its functionalities, referring in fact to the authority side: here authorities exploit different functionalities but the most important is probably the \texttt{Suggestions Module} as it enables authorities to request suggestions on interventions to take on the streets, and it involves nearly all the parts of our system: the \texttt{Municipality's Accidents Service}, the \texttt{Machine Learning Module} and the DBMS.
+\item \textbf{User Mobile Application}\\\\
+Right after the two services, we will start implementing the actual applications: this is the one with which every user will be provided. While most of the components link to the actual services, some modules are linked to externals APIs such as the \texttt{Violations Report Module}, which needs to access the external \texttt{Camera API}, and the \texttt{Main Thread Module}, which needs to interact with the \texttt{Maps API}. 
+\item \textbf{Authority Web Application}\\\\
+Finally, we will implement the Web Application for authorities, having its foundations in the \texttt{Authority Remote Services}. Here authorities can interact with the above mentioned and its most important module, the \texttt{Violations Retrieve Module}, needs the \texttt{Pubblico Registro Automobilistico API} and the \texttt{Maps API} to work correctly
 \end{itemize}
 \subsection{Integration and Testing}
 In the following sections we are going to illustrate how external components will be integrated with the ones implemented for the system and what testing strategy will be adopted.\\
@@ -459,23 +461,17 @@ This is the order in which we will integrate such components:
 \begin{itemize}
 \item \texttt{Integration with the DBMS}
 \item \texttt{Integration with external services}
-\item \texttt{Integration with the application server}
-\item \texttt{Integration Client - Server}
+\item \texttt{Integration with the applications}
 \end{itemize}
 Every component will be integrated with various modules and/or external/internal services
 \begin{itemize}
 \item \textbf{Integration of the components with the DBMS}\\
 Required integrations:
 \begin{itemize}
-\item \texttt{Subscription Manager Module, DBMS}
-\item \texttt{Violation Reporting Module, DBMS}
-\item \texttt{Reports History Module, DBMS}
-\item \texttt{Profile Manager Module, DBMS}
-\item \texttt{Data Access Module, DBMS}
-\item \texttt{Authentication Manager Module, DBMS}
-\item \texttt{Violation Solving Module, DBMS}
-\item \texttt{Suggestion Requesting Module, DBMS}
-\item \texttt{Data Sharing Module, DBMS}
+\item \texttt{Authentication Module, DBMS}
+\item \texttt{Profile Module, DBMS}
+\item \texttt{Violations Report/Violations Retrieve Module, DBMS}
+\item \texttt{Suggestions Module, DBMS}
 \end{itemize}
 \end{itemize}
 
@@ -483,71 +479,96 @@ Required integrations:
 \item \textbf{Integration of the components with external services}\\
 Required integrations:
 \begin{itemize}
-\item \texttt{Subscription Manager Module, SMS Service}
-\item \texttt{Violation Reporting Module, Maps Service}
-\item \texttt{Violation Reporting Module, Camera Service}
-\item \texttt{Violation Reporting Module, ANPR Service}
-\item \texttt{Violation Solving Module, PRA Service}
-\item \texttt{Violation Solving Module, Maps Service}
-\item \texttt{Suggestion Requesting Module, Machine Learning Service}
+\item \texttt{Authentication Module, SMS Service}
+\item \texttt{Violations Report Module, OCR Module}
+\item \texttt{Violations Retrieve Module, Pubblico Registro Automobilistico API}
+\item \texttt{Violations Retrieve Module, Maps API}
+\item \texttt{Suggestions Module, Municipality's Accidents Service}
+\item \texttt{Suggestions Module, Machine Learning Module}
 \end{itemize}
 \end{itemize}
 \subsection{Components Integration}
 In this section of the document,we will use some diagrams to describe how the components and subsystems of SafeStreets system will be linked to one another
-\subsubsection{User Side Integration}
+\subsubsection{User Mobile Application Side Integration}
 \begin{figure}[H]
 		\centering
-
-		\caption{Users' Sub Manager links with SMS Service and DBMS}
+		\includegraphics[width=0.5\linewidth]{../assets/images/auth_mod.png}
+		\caption{Authentication Module links with the User Application Services}
 \end{figure}
 \begin{figure}[H]
 		\centering
-
-		\caption{The most important module: it links up with 3 external services and the DBMS}
+		\includegraphics[width=0.5\linewidth]{../assets/images/prof_mod.png}
+		\caption{Profile Module links with the User Application Services}
 \end{figure}
 \begin{figure}[H]
 		\centering
-
-		\caption{This module links up only with the DBMS as it needs information from the database to show the user his reports history}
+		\includegraphics[width=0.5\linewidth]{../assets/images/viol_rep.png}
+		\caption{This module is the users' most important and must have access to the Camera API}
 \end{figure}
 \begin{figure}[H]
 		\centering
-
-		\caption{As said above, the same happens for this module and the DBMS}
+		\includegraphics[width=0.5\linewidth]{../assets/images/main_thread_mod.png}
+		\caption{This is the Main Thread Module and is composed only of the Maps API}
 \end{figure}
-\subsubsection{Authority Side Integration}
+\subsubsection{User Remote Services Side Integration}
 \begin{figure}[H]
 		\centering
-
-		\caption{In the authority projection, the same happens for the data access module: it interacts only with the DBMS in order to retrieve information from the users}
-\end{figure}
-\begin{figure}[H]
-		\centering
-
-		\caption{This module helps authorities authenticate to the system and accesses the DBMS only to check the validity of the inserted credentials}
+		\includegraphics[width=0.5\linewidth]{../assets/images/auth_mod_serv.png}
+		\caption{In the Remote Services, the Authentication Module interacts with the SMS Service and the DBMS}
 \end{figure}
 \begin{figure}[H]
 		\centering
-
-		\caption{One of the most important modules of this projection: it links with the Violations map and uses the PRA service to retrieve personal information of the owner of the violation-committing vehicles}
+		\includegraphics[width=0.5\linewidth]{../assets/images/prof_mod_serv.png}
+		\caption{Profile Module links with the DBMS}
 \end{figure}
 \begin{figure}[H]
 		\centering
-
-		\caption{This module links with external Machine Learning services in order to mine information from the streets (retrieved from municipality) and generate suggestions on interventions to take}
+		\includegraphics[width=0.5\linewidth]{../assets/images/viol_rep_serv.png}
+		\caption{Once into the Remote Services, this module interacts with the OCR Module for plate recognition (together with the DBMS)}
 \end{figure}
-\subsubsection{Third Party Side Integration}
+\subsubsection{Authority Web Application Side Integration}
 \begin{figure}[H]
 		\centering
-
-		\caption{As said above, the municipality have limited functionalities: one of these, the most important, is the possibility to share data on violations when explicitily requested from authorities/SafeStreets}
+		\includegraphics[width=0.5\linewidth]{../assets/images/auth_mod_auth.png}
+		\caption{Authentication Module links with the Authority Application Services}
 \end{figure}
 \begin{figure}[H]
 		\centering
-
-		\caption{Municipality have also the chance to authenticate to the system through the Web Server}
+		\includegraphics[width=0.5\linewidth]{../assets/images/prof_mod_auth.png}
+		\caption{Profile Module links with the Authority Application Services}
 \end{figure}
-\section{EFFORT SPENT}	\
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/viol_retr.png}
+		\caption{This module is very important and links with the PRA API (in order to recognize the owner of the vehicle) and with the Maps API}
+\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/sugg_mod.png}
+		\caption{Suggestions Module links to Authority Application Services}
+\end{figure}
+\subsubsection{Authority Remote Services Side Integration}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/auth_mod_auth_serv.png}
+		\caption{Authentication Module links to the DBMS}
+\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/prof_mod_auth_serv.png}
+		\caption{Profile Module links to the DBMS}
+\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/viol_retr_serv.png}
+		\caption{Violations Retrieve Module links to the DBMS}
+\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\linewidth]{../assets/images/sugg_mod_auth.png}
+		\caption{This module is very important and links to the Municipality's Accidents Service (to retrieve information) and the Machine Learning Module (to generate suggestions)}
+\end{figure}
+\section{EFFORT SPENT}
 \begin{itemize}
 		\item Giancarlo Danese
 		\begin{center}
@@ -559,6 +580,10 @@ In this section of the document,we will use some diagrams to describe how the co
 				24/11/2019 & Diagrams & 2\\
 				27/11/2019 & Diagrams & 2\\
 				30/11/2019 & Component View & 2\\
+				03/12/2019 & Design Patterns & 2\\
+				05/12/2019 & Requirements Traceability & 2\\
+				08/12/2019 & Components Integration & 3\\
+				09/12/2019 & UML & 3\\
 				\hline
 			\end{tabular}
 		\end{center}
@@ -572,12 +597,25 @@ In this section of the document,we will use some diagrams to describe how the co
 				24/11/2019 & Diagrams & 2 \\
 				27/11/2019 & Diagrams & 2 \\
 				30/11/2019 & Deployment View & 2\\
+				05/12/2019 & Requirements Traceability & 2\\
+				08/12/2019 & Implementation Plan & 2\\
+				09/12/2019 & Sequence Diagrams & 3\\
 				\hline
 			\end{tabular}
 		\end{center}
 	\end{itemize}
 \section{REFERENCES}
-
-
-
+\subsection{Reference Documents} 
+\begin{itemize}
+\item Specification Document "SafeStreets Mandatory Project Assignment"
+\item "Appunti di Sistemi Informativi per il Settore dell'Informazione" A.Y 2017/2018
+\item Wikipedia
+\item Software Engineering 2 Course Slides
+\end{itemize}
+\subsection{Tools}
+\begin{itemize}
+\item \textbf{Draw.io}: https://www.draw.io/
+\item \textbf{TeXWorks}: http://www.tug.org/texworks/
+\item \textbf{Github Desktop}: https://github.com/
+\end{itemize}
 \end{document}
