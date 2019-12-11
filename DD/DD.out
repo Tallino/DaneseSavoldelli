@@ -4,38 +4,36 @@
 \BOOKMARK [2][-]{subsection.1.3}{Definitions, Acronyms, Abbreviations}{section.1}% 4
 \BOOKMARK [3][-]{subsubsection.1.3.1}{Acronyms}{subsection.1.3}% 5
 \BOOKMARK [2][-]{subsection.1.4}{Revision History}{section.1}% 6
-\BOOKMARK [2][-]{subsection.1.5}{Reference Documents}{section.1}% 7
-\BOOKMARK [2][-]{subsection.1.6}{Document Structure}{section.1}% 8
-\BOOKMARK [1][-]{section.2}{ARCHITECTURAL DESIGN}{}% 9
-\BOOKMARK [2][-]{subsection.2.1}{High-level components and their interaction}{section.2}% 10
-\BOOKMARK [2][-]{subsection.2.2}{Component view}{section.2}% 11
-\BOOKMARK [3][-]{subsubsection.2.2.1}{High Level Component Diagram}{subsection.2.2}% 12
-\BOOKMARK [3][-]{subsubsection.2.2.2}{User Mobile Application Projection}{subsection.2.2}% 13
-\BOOKMARK [3][-]{subsubsection.2.2.3}{User Remote Services Projection}{subsection.2.2}% 14
-\BOOKMARK [3][-]{subsubsection.2.2.4}{Authority Web Application Projection}{subsection.2.2}% 15
-\BOOKMARK [3][-]{subsubsection.2.2.5}{Authority Remote Services Projection}{subsection.2.2}% 16
-\BOOKMARK [2][-]{subsection.2.3}{Component interfaces}{section.2}% 17
-\BOOKMARK [3][-]{subsubsection.2.3.1}{External Interfaces}{subsection.2.3}% 18
-\BOOKMARK [2][-]{subsection.2.4}{Deployment view}{section.2}% 19
-\BOOKMARK [2][-]{subsection.2.5}{Runtime view}{section.2}% 20
-\BOOKMARK [3][-]{subsubsection.2.5.1}{Violation Report}{subsection.2.5}% 21
-\BOOKMARK [3][-]{subsubsection.2.5.2}{Violation Retrieval}{subsection.2.5}% 22
-\BOOKMARK [3][-]{subsubsection.2.5.3}{Suggestion Retrieval}{subsection.2.5}% 23
-\BOOKMARK [2][-]{subsection.2.6}{Selected architectural styles and patterns}{section.2}% 24
-\BOOKMARK [3][-]{subsubsection.2.6.1}{Design Patterns}{subsection.2.6}% 25
-\BOOKMARK [3][-]{subsubsection.2.6.2}{RAPS Architecture}{subsection.2.6}% 26
-\BOOKMARK [2][-]{subsection.2.7}{Other design decisions}{section.2}% 27
-\BOOKMARK [1][-]{section.3}{USER INTERFACE DESIGN}{}% 28
-\BOOKMARK [1][-]{section.4}{REQUIREMENTS TRACEABILITY}{}% 29
-\BOOKMARK [1][-]{section.5}{IMPLEMENTATION, INTEGRATION AND TEST PLAN}{}% 30
-\BOOKMARK [2][-]{subsection.5.1}{Implementation Plan}{section.5}% 31
-\BOOKMARK [2][-]{subsection.5.2}{Integration and Testing}{section.5}% 32
-\BOOKMARK [2][-]{subsection.5.3}{Components Integration}{section.5}% 33
-\BOOKMARK [3][-]{subsubsection.5.3.1}{User Mobile Application Side Integration}{subsection.5.3}% 34
-\BOOKMARK [3][-]{subsubsection.5.3.2}{User Remote Services Side Integration}{subsection.5.3}% 35
-\BOOKMARK [3][-]{subsubsection.5.3.3}{Authority Web Application Side Integration}{subsection.5.3}% 36
-\BOOKMARK [3][-]{subsubsection.5.3.4}{Authority Remote Services Side Integration}{subsection.5.3}% 37
-\BOOKMARK [1][-]{section.6}{EFFORT SPENT}{}% 38
-\BOOKMARK [1][-]{section.7}{REFERENCES}{}% 39
-\BOOKMARK [2][-]{subsection.7.1}{Reference Documents}{section.7}% 40
-\BOOKMARK [2][-]{subsection.7.2}{Tools}{section.7}% 41
+\BOOKMARK [2][-]{subsection.1.5}{Document Structure}{section.1}% 7
+\BOOKMARK [1][-]{section.2}{ARCHITECTURAL DESIGN}{}% 8
+\BOOKMARK [2][-]{subsection.2.1}{High-level components and their interaction}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.2}{Component view}{section.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.2.1}{High Level Component Diagram}{subsection.2.2}% 11
+\BOOKMARK [3][-]{subsubsection.2.2.2}{User Mobile Application Projection}{subsection.2.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.2.3}{User Application Services Projection}{subsection.2.2}% 13
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Authority Web Application Projection}{subsection.2.2}% 14
+\BOOKMARK [3][-]{subsubsection.2.2.5}{Authority Application Services Projection}{subsection.2.2}% 15
+\BOOKMARK [2][-]{subsection.2.3}{Component interfaces}{section.2}% 16
+\BOOKMARK [3][-]{subsubsection.2.3.1}{External Interfaces}{subsection.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.4}{Deployment view}{section.2}% 18
+\BOOKMARK [2][-]{subsection.2.5}{Runtime view}{section.2}% 19
+\BOOKMARK [3][-]{subsubsection.2.5.1}{Violation Report}{subsection.2.5}% 20
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Violation Retrieval}{subsection.2.5}% 21
+\BOOKMARK [3][-]{subsubsection.2.5.3}{Suggestion Retrieval}{subsection.2.5}% 22
+\BOOKMARK [2][-]{subsection.2.6}{Selected architectural styles and patterns}{section.2}% 23
+\BOOKMARK [3][-]{subsubsection.2.6.1}{Design Patterns}{subsection.2.6}% 24
+\BOOKMARK [3][-]{subsubsection.2.6.2}{RAPS Architecture}{subsection.2.6}% 25
+\BOOKMARK [1][-]{section.3}{USER INTERFACE DESIGN}{}% 26
+\BOOKMARK [1][-]{section.4}{REQUIREMENTS TRACEABILITY}{}% 27
+\BOOKMARK [1][-]{section.5}{IMPLEMENTATION, INTEGRATION AND TEST PLAN}{}% 28
+\BOOKMARK [2][-]{subsection.5.1}{Implementation Plan}{section.5}% 29
+\BOOKMARK [2][-]{subsection.5.2}{Integration and Testing}{section.5}% 30
+\BOOKMARK [2][-]{subsection.5.3}{Components Integration}{section.5}% 31
+\BOOKMARK [3][-]{subsubsection.5.3.1}{User Mobile Application Side Integration}{subsection.5.3}% 32
+\BOOKMARK [3][-]{subsubsection.5.3.2}{User Remote Services Side Integration}{subsection.5.3}% 33
+\BOOKMARK [3][-]{subsubsection.5.3.3}{Authority Web Application Side Integration}{subsection.5.3}% 34
+\BOOKMARK [3][-]{subsubsection.5.3.4}{Authority Remote Services Side Integration}{subsection.5.3}% 35
+\BOOKMARK [1][-]{section.6}{EFFORT SPENT}{}% 36
+\BOOKMARK [1][-]{section.7}{REFERENCES}{}% 37
+\BOOKMARK [2][-]{subsection.7.1}{Reference Documents}{section.7}% 38
+\BOOKMARK [2][-]{subsection.7.2}{Tools}{section.7}% 39

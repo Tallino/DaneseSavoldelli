@@ -57,9 +57,14 @@ Authorities will have the chance to mine the information retrieved in the databa
 				\item PRA: Pubblico Registro Automobilistico
 				\item AUC: Authority Unique Code
 				\item DBP: Device-bound PIN
+				\item FW1, FW2: Firewall 1, Firewall 2
+				\item DMZ: DeMilitarized Zone.
 			\end{itemize}
 \subsection{Revision History}
-\subsection{Reference Documents}
+\begin{itemize}
+	\item \textbf{1.0 12/09/2019} Initial release
+	\item \textbf{1.1 12/10/2019} Added version history, updated Tools section.
+\end{itemize}
 \subsection{Document Structure}
 \begin{itemize}
 \item \textbf{1 Introduction} 
@@ -97,20 +102,27 @@ Here we have the Database Server and the Database itself, where all the data abo
 \subsubsection{High Level Component Diagram}
 The following diagrams represents the systems' components and its interfaces throughout which they interact in order to execute their functionalities. We'll divide this view into two sides, the Client side and the Server side:
 \begin{itemize}
-\item The Client side is composed of three different components, the \texttt{Authority Web Application}, intended for authorities only, the \texttt{Third Party Web Application}, for municipality, and the \texttt{Mobile Application}, for users. The first two refers to the \texttt{AuthoritiesWebServices} service for authorities and to the \texttt{Third Party Web Services} for the municipality, the last to the \texttt{UserMobileServices} service for users
-\item The Server side is consequently also composed of three different components, the \texttt{Authorities Web Services} which will enable authorities to check the map, solve violations, etc., the \texttt{User Mobile Services} which gives users the chance to report street/parking violations with pictures, check/modify their personal data and review their report history.
+\item The Client side is composed of two different components, 
+the \texttt{Authority Web Application}, intended for authorities only and 
+the \texttt{Mobile Application}, for users. They are physically located, respectively, in the Authority's web browser and the User application for mobile devices.
+The first refers to the \texttt{Authority Application Services} service for authorities and 
+the last to the \texttt{User Application Services} service for users.
+\item The Server side is consequently also composed of two different components, the \texttt{Authorities Application Services} which will enable authorities to check the map, solve violations, etc., the \texttt{User Application Services} which gives users the chance to report street/parking violations with pictures, check/modify their personal data and review their report history. Its functionalities are the ones which represent the Application Server.
 \end{itemize}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=1.2\linewidth]{../assets/images/component_no3rdparty.pdf}
+		\includegraphics[width=1.0\linewidth]{../assets/images/component_no3rdparty.pdf}
+		\caption{Overview of Client side and Server side components}
 	\end{figure}
-
+In this simplified description we assume the Client to directly connect to the Application Server API without mentioning the Web Server (part of the Server Side) because its only function in this implementation is to forward requests and replies to the respective recipients.
+The real implementation of exchanged messages, enclosed in the Sequence Diagrams of the Runtime View section, includes the Web Server infrastructure as well.
 \newpage
 \subsubsection{User Mobile Application Projection}
 The User Mobile Application Projection is subdivided into 4 modules: the \texttt{Authentication Module}, the \texttt{Profile Module}, the \texttt{Violations Report Module} and the \texttt{Main Thread Module}. These components need to communicate with the \texttt{User Service API} which exposes the application interfaces which will be described in the User Remote Services Projection. 
 \begin{figure}[H]
 		\centering
 		\includegraphics[width=1.2\linewidth]{../assets/images/user_mobile_projection.pdf}
+		\caption{User Mobile Application components}
 	\end{figure}
 As you can see, every single module but the Main Thread have access to the \texttt{User Application Services}. The \texttt{Violations Report Module}, the most important in the whole User Mobile Services, interfaces with a \texttt{Camera API}, enabled by the Oprative System (Android or iOS) and the external \texttt{Maps API}, provided by the Maps Provider.
 \subsubsection*{Module Functionalities}
@@ -126,11 +138,12 @@ As you can see, every single module but the Main Thread have access to the \text
 \item \textbf{Maps API}: this is the API which allows the user to connect to a map service and download the maps basing on the actual location of the device. Since it is not the main concern of this document, for semplicity this "abstract" API represents both the GPS API provided by the OS and the remote Maps service.
 \end{itemize}
 \newpage
-\subsubsection{User Remote Services Projection}
+\subsubsection{User Application Services Projection}
 The User Services Projection is subdivided into 4 modules: the \texttt{Authentication Module}, the \texttt{Profile Module}, the \texttt{Violations Report Module} and the \texttt{OCR Module}. These components provide the User Mobile Application the following interfaces: \texttt{AuthenticationManager}, \texttt{ProfileManager} and \texttt{ViolationReportManager}. These components also need to communicate with a \texttt{DBMS} which must guarantee full availability and functionality to the Application for a correct user experience.
 \begin{figure}[H]
 		\centering
 		\includegraphics[width=1.2\linewidth]{../assets/images/user_projection.pdf}
+		\caption{User Application Services components}
 	\end{figure}
 Every single module but the \texttt{OCR Module} have access to the \texttt{DBMS} and the \texttt{Authentication Module} interacts with a \texttt{SMS Service}, where a SMS is sent with a verification code to subscribe to the system. The \texttt{Violations Report Module}, the most important in the whole User Mobile Services, interfaces with a \texttt{OCRHandler} which tries to recognize the license plate from the photo and saves it in the Violation Report.
 \subsubsection*{Module Functionalities}
@@ -149,7 +162,8 @@ Every single module but the \texttt{OCR Module} have access to the \texttt{DBMS}
 The Authority Web Services Projection is subdivided into 4 modules: the \texttt{Authentication Module}, the \texttt{Profile Module}, the \texttt{Violation Retrieve Module} and the \texttt{Suggestion Module}. These components also need to communicate with a \texttt{Authority Service API} which exposes the application interfaces which will be described in the Authority Remote Services Projection.
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=1.1\linewidth]{../assets/images/Authority_webapp_projection.pdf}
+		\includegraphics[width=1.0\linewidth]{../assets/images/Authority_webapp_projection.pdf}
+		\caption{Authority Web App components}
 	\end{figure}
 \newpage
 \subsubsection*{Module Functionalities}
@@ -165,11 +179,12 @@ The Authority Web Services Projection is subdivided into 4 modules: the \texttt{
 \item \textbf{Maps API}: this module downloads the actual maps for the Web Application basing on the virtual position of the cursor.
 \end{itemize}
 \newpage
-\subsubsection{Authority Remote Services Projection}
+\subsubsection{Authority Application Services Projection}
 The Authority Web Services Projection is subdivided into 5 modules: the \texttt{Authentication Module}, the \texttt{Profile Module}, the \texttt{Violation Retrieve Module}, the \texttt{Suggestion Module} and the \texttt{Machine Learning Module}. These components provide to the Authority Web Application the following interfaces: \texttt{AuthenticationManager}, \texttt{ProfileManager}, \texttt{ViolationRetriveManager} and \texttt{SuggestionManager} . These components also need to communicate with a \texttt{DBMS} for the correct dispatching of data.
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=1.2\linewidth]{../assets/images/authority_projection.pdf}
+		\includegraphics[width=1.0\linewidth]{../assets/images/authority_projection.pdf}
+		\caption{Authority Application Services components}
 	\end{figure}
 We can see here how the \texttt{Suggestion Module} refers to the \texttt{Machine Learning Module} in order to generate suggestions for interventions to take in streets particularly full of violations.
 \subsubsection*{Module Functionalities}
@@ -187,8 +202,12 @@ We can see here how the \texttt{Suggestion Module} refers to the \texttt{Machine
 \subsection{Component interfaces}
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.7\linewidth]{../assets/images/component_interfaces1.pdf}
+		\includegraphics[width=0.7\linewidth]{../assets/images/component_interfaces.pdf}
+		\caption{Interfaces of the Application Service}
 	\end{figure}
+\newpage
+In the UML diagram above a simple definition of the main interfaces composing the (Remote) Application Service is shown. 
+There is the clear division of the two main interfaces \texttt{User Service API} and \texttt{Authority Services API} which expose, respectively, the \textbf{User Application Service} and the \textbf{Authority Application Service} to the clients. From them the respective interfaces of the submodules are derived.
 \subsubsection{External Interfaces}
 SafeStreets uses some Application Programming Interfaces to facilitate the implementation. These components are infact largely used and compatible with most of the devices currently on the market:
 \begin{itemize}
@@ -287,8 +306,6 @@ It provides a surrogate for another object to control access to it. In our syste
 \subsubsection{RAPS Architecture}
 We want our system to rely on a RAPS (Reliable Array of Partitioned Service) architecture, in order to prevent unavailability of some functionalities in case of breakdowns. This architecture consists in a partitioned and redundant structure: servers are cloned to achieve this objective. More precisly, multiple services are divided on different machines and each machine can access in turn to a copy of the stored data. Such architecture guarantees better availability and scalability and provides a high rate of maintainability: in case of breakdowns, it is sufficient to work on the damaged machine, without interfering with the other machines' tasks, while the specific service can still be perfomed. In addition, if the system is willing to expand some services, it is sufficient invest
 on the specific partition associated to that service.
-\subsection{Other design decisions}
-
 \section{USER INTERFACE DESIGN}
 As already mentioned in the \texttt{Requirements Analysis and Specification Document} (RASD), our idea is to provide users with a Mobile App (for smartphones and tablets) and authorities with a Web App (for computers).\\ The applications will be different both in functionalities and in style, and we decided to separate the two and therefore make them exclusive, because of the different use and different authentication method they have.\\ For a closer look at what the two interfaces look like, we invite you to check our RASD where several mock-ups have been presented
 \section{REQUIREMENTS TRACEABILITY}
@@ -438,6 +455,7 @@ As already mentioned in the \texttt{Requirements Analysis and Specification Docu
 \item Pubblico Registro Automobilistico API 
 \end{itemize}
 \end{itemize}
+\newpage
 \section{IMPLEMENTATION, INTEGRATION AND TEST PLAN}
 \subsection{Implementation Plan}
 We will implement our system one component/module at a time, according to a bottom-up approach that will facilitate a high deployment coverage in early phases. The order in which our implementation will be carried out, takes in account different factors such as the complexity of the modules and how they are interconnected with one another and we must take in consideration the possibility of discovering flaws and bugs in our designed system that will require to be fixed as soon as possible in order to prevent further additional costs and difficulties in debugging.\\\\
@@ -568,6 +586,7 @@ In this section of the document,we will use some diagrams to describe how the co
 		\includegraphics[width=0.5\linewidth]{../assets/images/sugg_mod_auth.png}
 		\caption{This module is very important and links to the Municipality's Accidents Service (to retrieve information) and the Machine Learning Module (to generate suggestions)}
 \end{figure}
+\newpage
 \section{EFFORT SPENT}
 \begin{itemize}
 		\item Giancarlo Danese
@@ -595,15 +614,17 @@ In this section of the document,we will use some diagrams to describe how the co
 				Day & Subject & Hours \\ \hline
 				18/11/2019 & Architectural Design & 1 \\
 				24/11/2019 & Diagrams & 2 \\
-				27/11/2019 & Diagrams & 2 \\
-				30/11/2019 & Deployment View & 2\\
+				27/11/2019 & Diagrams & 3 \\
+				30/11/2019 & Deployment View & 3\\
+				04/11/2019 & UML & 3 \\
 				05/12/2019 & Requirements Traceability & 2\\
-				08/12/2019 & Implementation Plan & 2\\
+				08/12/2019 & Implementation Plan & 3\\
 				09/12/2019 & Sequence Diagrams & 3\\
 				\hline
 			\end{tabular}
 		\end{center}
 	\end{itemize}
+\newpage
 \section{REFERENCES}
 \subsection{Reference Documents} 
 \begin{itemize}
@@ -614,8 +635,17 @@ In this section of the document,we will use some diagrams to describe how the co
 \end{itemize}
 \subsection{Tools}
 \begin{itemize}
-\item \textbf{Draw.io}: https://www.draw.io/
-\item \textbf{TeXWorks}: http://www.tug.org/texworks/
-\item \textbf{Github Desktop}: https://github.com/
+\item Graphics Tools:
+	\begin{itemize}
+		\item \textbf{Draw.io}: \url{https://www.draw.io/}
+		\item \textbf{Adobe XD}: \url{https://www.adobe.com/xd}
+	\end{itemize}
+\item Code and Version Control tools:
+\begin{itemize}
+	\item \textbf{TeXWorks}: \url{http://www.tug.org/texworks/}
+	\item \textbf{Github Desktop}: \url{https://github.com/}
+	\item \textbf{Visual Studio Code}: \url{https://code.visualstudio.com/}
+\end{itemize}
+
 \end{itemize}
 \end{document}

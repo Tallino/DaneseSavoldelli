@@ -1,41 +1,39 @@
-\contentsline {section}{\numberline {1}INTRODUCTION}{4}{section.1}% 
-\contentsline {subsection}{\numberline {1.1}Purpose}{4}{subsection.1.1}% 
-\contentsline {subsection}{\numberline {1.2}Scope}{4}{subsection.1.2}% 
-\contentsline {subsection}{\numberline {1.3}Definitions, Acronyms, Abbreviations}{4}{subsection.1.3}% 
-\contentsline {subsubsection}{\numberline {1.3.1}Acronyms}{5}{subsubsection.1.3.1}% 
-\contentsline {subsection}{\numberline {1.4}Revision History}{5}{subsection.1.4}% 
-\contentsline {subsection}{\numberline {1.5}Reference Documents}{5}{subsection.1.5}% 
-\contentsline {subsection}{\numberline {1.6}Document Structure}{5}{subsection.1.6}% 
-\contentsline {section}{\numberline {2}ARCHITECTURAL DESIGN}{6}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}High-level components and their interaction}{6}{subsection.2.1}% 
-\contentsline {subsection}{\numberline {2.2}Component view}{7}{subsection.2.2}% 
-\contentsline {subsubsection}{\numberline {2.2.1}High Level Component Diagram}{7}{subsubsection.2.2.1}% 
-\contentsline {subsubsection}{\numberline {2.2.2}User Mobile Application Projection}{8}{subsubsection.2.2.2}% 
-\contentsline {subsubsection}{\numberline {2.2.3}User Remote Services Projection}{10}{subsubsection.2.2.3}% 
-\contentsline {subsubsection}{\numberline {2.2.4}Authority Web Application Projection}{12}{subsubsection.2.2.4}% 
-\contentsline {subsubsection}{\numberline {2.2.5}Authority Remote Services Projection}{14}{subsubsection.2.2.5}% 
-\contentsline {subsection}{\numberline {2.3}Component interfaces}{16}{subsection.2.3}% 
-\contentsline {subsubsection}{\numberline {2.3.1}External Interfaces}{17}{subsubsection.2.3.1}% 
-\contentsline {subsection}{\numberline {2.4}Deployment view}{18}{subsection.2.4}% 
-\contentsline {subsection}{\numberline {2.5}Runtime view}{22}{subsection.2.5}% 
-\contentsline {subsubsection}{\numberline {2.5.1}Violation Report}{22}{subsubsection.2.5.1}% 
-\contentsline {subsubsection}{\numberline {2.5.2}Violation Retrieval}{24}{subsubsection.2.5.2}% 
-\contentsline {subsubsection}{\numberline {2.5.3}Suggestion Retrieval}{25}{subsubsection.2.5.3}% 
-\contentsline {subsection}{\numberline {2.6}Selected architectural styles and patterns}{26}{subsection.2.6}% 
-\contentsline {subsubsection}{\numberline {2.6.1}Design Patterns}{26}{subsubsection.2.6.1}% 
-\contentsline {subsubsection}{\numberline {2.6.2}RAPS Architecture}{28}{subsubsection.2.6.2}% 
-\contentsline {subsection}{\numberline {2.7}Other design decisions}{29}{subsection.2.7}% 
-\contentsline {section}{\numberline {3}USER INTERFACE DESIGN}{29}{section.3}% 
-\contentsline {section}{\numberline {4}REQUIREMENTS TRACEABILITY}{29}{section.4}% 
-\contentsline {section}{\numberline {5}IMPLEMENTATION, INTEGRATION AND TEST PLAN}{32}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Implementation Plan}{32}{subsection.5.1}% 
-\contentsline {subsection}{\numberline {5.2}Integration and Testing}{34}{subsection.5.2}% 
-\contentsline {subsection}{\numberline {5.3}Components Integration}{35}{subsection.5.3}% 
-\contentsline {subsubsection}{\numberline {5.3.1}User Mobile Application Side Integration}{35}{subsubsection.5.3.1}% 
-\contentsline {subsubsection}{\numberline {5.3.2}User Remote Services Side Integration}{36}{subsubsection.5.3.2}% 
-\contentsline {subsubsection}{\numberline {5.3.3}Authority Web Application Side Integration}{36}{subsubsection.5.3.3}% 
-\contentsline {subsubsection}{\numberline {5.3.4}Authority Remote Services Side Integration}{37}{subsubsection.5.3.4}% 
-\contentsline {section}{\numberline {6}EFFORT SPENT}{38}{section.6}% 
-\contentsline {section}{\numberline {7}REFERENCES}{39}{section.7}% 
-\contentsline {subsection}{\numberline {7.1}Reference Documents}{39}{subsection.7.1}% 
-\contentsline {subsection}{\numberline {7.2}Tools}{39}{subsection.7.2}% 
+\contentsline {section}{\numberline {1}INTRODUCTION}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Purpose}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Scope}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Definitions, Acronyms, Abbreviations}{4}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Acronyms}{5}{subsubsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.4}Revision History}{5}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Document Structure}{5}{subsection.1.5}%
+\contentsline {section}{\numberline {2}ARCHITECTURAL DESIGN}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}High-level components and their interaction}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Component view}{8}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}High Level Component Diagram}{8}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}User Mobile Application Projection}{10}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}User Application Services Projection}{12}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Authority Web Application Projection}{14}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Authority Application Services Projection}{16}{subsubsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.3}Component interfaces}{18}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}External Interfaces}{19}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.4}Deployment view}{20}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Runtime view}{24}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Violation Report}{24}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Violation Retrieval}{26}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Suggestion Retrieval}{27}{subsubsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.6}Selected architectural styles and patterns}{28}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Design Patterns}{28}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}RAPS Architecture}{30}{subsubsection.2.6.2}%
+\contentsline {section}{\numberline {3}USER INTERFACE DESIGN}{31}{section.3}%
+\contentsline {section}{\numberline {4}REQUIREMENTS TRACEABILITY}{31}{section.4}%
+\contentsline {section}{\numberline {5}IMPLEMENTATION, INTEGRATION AND TEST PLAN}{35}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Implementation Plan}{35}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Integration and Testing}{36}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Components Integration}{37}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}User Mobile Application Side Integration}{37}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}User Remote Services Side Integration}{38}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Authority Web Application Side Integration}{39}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}Authority Remote Services Side Integration}{40}{subsubsection.5.3.4}%
+\contentsline {section}{\numberline {6}EFFORT SPENT}{41}{section.6}%
+\contentsline {section}{\numberline {7}REFERENCES}{42}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Reference Documents}{42}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Tools}{42}{subsection.7.2}%
