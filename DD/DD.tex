@@ -114,7 +114,7 @@ the last to the \texttt{User Application Services} service for users.
 		\includegraphics[width=1.0\linewidth]{../assets/images/component_no3rdparty.pdf}
 		\caption{Overview of Client side and Server side components}
 	\end{figure}
-In this simplified description we assume the Client to directly connect to the Application Server API without mentioning the Web Server (part of the Server Side) because its only function in this implementation is to forward requests and replies to the respective recipients.
+In this simplified description we assume the Client directly connected to the Application Server API without mentioning the Web Server (part of the Server Side) because its only function in this implementation is to forward requests and reply to the respective recipients.
 The real implementation of exchanged messages, enclosed in the Sequence Diagrams of the Runtime View section, includes the Web Server infrastructure as well.
 \newpage
 \subsubsection{User Mobile Application Projection}
@@ -191,7 +191,7 @@ We can see here how the \texttt{Suggestion Module} refers to the \texttt{Machine
 \begin{itemize}
 \item \textbf{Authentication Module}: this module manages the registration and login of the authority. It will validate Authority AUC and DBP in order to provide the Authority a secured login.
 \item \textbf{Profile Module}: this module accepts Authority's requests about personal information, gets them from the Database and forwards them to the Web App.
-\item \textbf{Violation Retrieve Module}: this dispatch the Violation Information to the Authority's Web App.
+\item \textbf{Violation Retrieve Module}: this dispatches the Violation information to the Authority's Web App.
 \item \textbf{Suggestion Module}: this module manages the dispatching of suggestions to the Authority's Web App. It also retrieves Violations' data from the enterprise database and the Accidents' data provided by the municipality's external API. This data is finally sent through the \texttt{MachineLearningHandler} interface in order to provide its actual computation.
 \item \textbf{Machine Learning Module}: this module allows the generation of suggestions basing on the data (Violations and Accidents) exchanged with the suggestion module.
 \end{itemize}
