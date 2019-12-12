@@ -21,7 +21,7 @@ Davide Savoldelli - 928676}
 
  \begin{figure}
   \centering
-  \includegraphics[width=1.0\linewidth]{../assets/images/logo_poli.jpg}
+  \includegraphics[width=1.0\linewidth]{../assets/images/logo_poli.pdf}
  \end{figure}
 
  \maketitle
@@ -66,16 +66,16 @@ Authorities will have the chance to observe the information retrieved and mined 
 				\item AUC: Authority Unique Code
 				\item DBP: Device-bound PIN
 			\end{itemize}
+\newpage
 \subsection{Revision history}
 \begin{itemize}
 \item \texttt{27/11/2019} Added Web Service/Server to all the Sequence Diagrams, added the Suggestion Request sequence diagram and corrected some discrepancies/clarifications regarding the Suggestions generating processes
 \item \texttt{03/12/2019} Added Suggestion Requesting Use Case, added Third Party actor and corrected more discrepancies/clarifications
+\item \texttt{12/12/2019} Removed Third Party Actor
 \end{itemize}
-\newpage
 \subsection{Reference Documents} 
 \begin{itemize}
 				\item Specification Document "SafeStreets Mandatory Project Assignment"
-				\item 830-1993 - IEEE Recommended Practice for Software Requirements
 				\item Document "5.b Structure of RASD"
 				\item Alloy Language Reference "http://alloytools.org/download/alloy-language-reference.pdf"
 			\end{itemize}
@@ -131,7 +131,6 @@ According to the goals defined in the first section, we can list the most import
 \begin{itemize}
 \item {\texttt{Registered User}}: A person who registered to SafeStreets, sharing his personal data. He can login to the system by providing credentials and exploit all the services.
 \item {\texttt{Authorities}}: A Law Enforcement agent who has direct access to the users' reports on their web app and can issue warnings, fines and measures.
-\item {\texttt{Third Party}}: Municipality can allow users to retrieve information about accidents on their territory so SafeStreets can cross this infromation with its own data to identify potentially unsafe areas and suggest possible interventions
 \end{itemize}
 \subsection{Assumptions, dependencies and constraints}
  \begin{itemize}
