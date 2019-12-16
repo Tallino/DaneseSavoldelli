@@ -1,29 +1,25 @@
 
 --------SIGNATURES--------
 sig User {
-	email: one String,
 	telephone: one Int,	
-	password: one String,
 	id: one Int
 }
 
 sig Authority{
-	auc: one String,
 	dbp: one Int,
 	id: one Int
 }
 
 sig Violation {
 	id: one Int,
-	plate: one String,
-	time: one String,
-	location: one String,
+	us: one User,
 }
 
 sig Report {
 	violation: one Violation,
 	priority: one Int,
-	elapsedDays: one Int
+	elapsedDays: one Int,
+	coordinates: one Int
 } {
 	priority > 0
 }
@@ -55,62 +51,43 @@ sig AuthorityDatabase {
 
 sig Suggestion {
 	id: one Int,
-	location: one String
+	coordinates: one Int
 }
 
 
 ------------------FACTS-------------------
 
-fact NoDifferentViolations {
+fact NoEqualReports {
 	
-	-- if two violations have occurred
-	-- on the same location in the same time and 
-	-- belong to the same plate then they must have 
-	-- the same id and vice versa.
+	---- There can't be two duplicate Reports in the database
+	no disjoint r1, r2: Report, db: Database |
+(r1 in db.queued and r2 in db.queued)
+		iff
+(r1.violation.id != r2.violation.id)
 
-	one v1, v2: Violation |
-		(
-			v1.plate = v2.plate and
-			v1.time = v2.time and
-			v1.location = v2.location
-		) iff 
-		(
-			v1.id = v2.id
-		)
 }
 
-fact NoDifferentEmailsOrTelephone{
+fact NoEqualTelephones{
 
-	--if two emails or two telephones
+	--if two telephones
 	--are equal, then it must be
 	-- the same user
-
-	one u1, u2: User |
+	no disjoint u1, u2: User |
 		
-	(
-		u1.email = u2.email or
-		u1.telephone = u2.telephone
-	) iff
-	(
-		u1.id = u2.id
-	)
+	(u1.telephone = u2.telephone) 
+iff
+	(u1.id = u2.id)
 }
 
 
-fact NoDifferentAucOrDbp{
-
-	-- if two auc or two dbp
+fact NoEqualDbp{
+	-- if two dbp
 	-- are equal, then it must be
 	-- the same authority and vice versa
-
-	one a1, a2: Authority |	
-	(
-		a1.auc = a2.auc or
-		a1.dbp = a2.dbp
-	) iff
-	(
-		a1.id = a2.id
-	)
+	no disjoint a1, a2: Authority |	
+	(a1.dbp = a2.dbp) 
+iff
+	(a1.id = a2.id)
 }
 
 fact AuthorityExistance {
@@ -118,7 +95,7 @@ fact AuthorityExistance {
 	-- if an authority is registered then
 	-- he must be in the authority database
 
-	one a: Authority, db: AuthorityDatabase |
+	no disjoint a: Authority, db: AuthorityDatabase |
 	(a in db.authorities) iff (a.id>0)
 }
 	
@@ -128,7 +105,7 @@ fact UserExistance {
 	--if a user is registered then
 	--he must be in the user database
 
-	one u: User, db: UserDatabase |
+	no disjoint u: User, db: UserDatabase |
 	(u in db.users) iff (u.id>0)
 }
 
@@ -137,9 +114,19 @@ fact SuggestionExistance {
 	--if a suggestion is raised then
 	--he must be in the suggestion database
 
-	one s: Suggestion, db: Database |
+	no disjoint s: Suggestion, db: Database |
 	(s in db.suggestions) iff (s.id>0)
 }
+
+fact DisjointQueuedAndConfirmed {
+
+	-- A report cannot be both in confirmed and
+	-- queued sets at the same time.
+
+	no disjoint r: Report, db: Database | 
+		r in db.queued iff r not in db.confirmed
+}
+
 
 
 fact NoSuggestionIfNoReports {
@@ -149,89 +136,73 @@ fact NoSuggestionIfNoReports {
 	-- then Suggestion of that location must not be raised.
 
 	all r: Report, s: Suggestion | one db: Database | 
-		(
-			r.violation.location = s.location and
-			r not in db.queued
-		) implies
-			s not in db.suggestions
-}
+		(r.coordinates = s.coordinates and r in db.queued) iff
+(s in db.suggestions)
 
-fact DisjointQueuedAndConfirmed {
-
-	-- A report cannot be both in confirmed and
-	-- queued sets at the same time.
-
-	one r: Report, db: Database | 
-		r in db.queued iff r not in db.confirmed
 }	
 
 
 ---------------ASSERTIONS------------
 
+assert UniquenessOfReports{
+	
 
-assert NoDuplicatedReports {
+	all r1, r2: Report, db: Database |
 
-	-- All different reports in queued or confirmed 
-	-- inboxes must have different related violations
+not (	r1.violation.id = r2.violation.id		)
+		
+implies not
 
-	one db: Database |
-			(
-				all r1, r2: Report |
-					r1 in db.queued and r2 in db.queued and
-					r1.violation.id != r2.violation.id and
-					r1 != r2
-			)
-		and
-			(	
-				all r1, r2: Report |
-					r1 in db.confirmed and r2 in db.confirmed and
-					r1.violation.id != r2.violation.id and
-					r1 != r2
-			)
+(	r1 in db.queued and r2 in db.queued	)	
+
 }
 
-check NoDuplicatedReports for 10
+check UniquenessOfReports 
 
-assert NoMoreThan7Days {
 	
-	-- if one report is not moved from queued to confirmed within 7 days
-	-- then it is deleted from the database.
-	
-	all r: Report, d: Database |
-	(r.elapsedDays >= 7) implies (r not in d.queued)
+assert UniqueTelephones {
+
+		all u1,u2: User |
+not	(u1.telephone=u2.telephone)
+
+implies
+	(u1.id = u2.id)
 }
 
-check NoMoreThan7Days for 10
-	
-assert PriorityIncrease {
+check UniqueTelephones
 
-	-- if one report added to the database is already present into it, 
-	-- then the actual report's priority is increased. 
+assert UniqueDBP{
+	all a1, a2: Authority |	
+	not (a1.id = a2.id) 
+implies
+(a1.dbp = a2.dbp) 
 
-		all r1,r2: Report, d: Database |
-	(r1 in d.queued and r2 in d.queued and r1.id = r2.id) implies
-	(r1.priority > r2.priority)
 }
 
-check PriorityIncrease for 10
+check UniqueDBP
 
+assert DisjointedQueues {
 
+	no disjoint r: Report, db: Database | 
+ not (r in db.confirmed)
+iff (r in db.queued)
+}
+
+check DisjointedQueues
 
 --------------------PREDICATES---------------------
 
-
-pred createUser[u: User, em: String, tel: Int, pass: String, i: Int] {
-	u.email = em
-	u.telephone = tel
-	u.password = pass
-	u.id = i
+pred show() {
+#Violation > 1
+#Report > 1
+#Suggestion > 1
+#User > 1
+#Authority > 1
+#Database > 1
+#UserDatabase > 1
+#AuthorityDatabase > 1
 }
 
-pred createAuth[a: Authority, au: String, dev: Int, i: Int] {
-		
-	a.auc=au
-	a.dbp=dev
-	a.id=i
-}
+run show for 2
 
 
